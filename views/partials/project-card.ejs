@@ -1,0 +1,19 @@
+<%
+  var isExternal = Boolean(project.link);
+  var href = isExternal ? project.link : '/work/' + project.slug;
+%>
+<a class="card project-card" href="<%= href %>" data-tilt <%= isExternal ? 'target="_blank" rel="noopener"' : '' %>>
+  <%- include('cover', { project: project }) %>
+  <div class="project-card-body">
+    <p class="project-card-meta">
+      <span class="project-index"><%= String(index + 1).padStart(2, '0') %></span>
+      <span class="project-kicker"><%= project.categories[0] %> · <%= project.year %></span>
+    </p>
+    <h3 class="project-card-title"><%= project.title %></h3>
+    <p class="project-card-sub"><%= project.subtitle %></p>
+    <ul class="tags">
+      <% project.categories.forEach(function (c) { %><li><%= c %></li><% }); %>
+    </ul>
+    <span class="link-arrow"><%= project.linkLabel || 'View case study' %> <span aria-hidden="true"><%= isExternal ? '↗' : '→' %></span></span>
+  </div>
+</a>

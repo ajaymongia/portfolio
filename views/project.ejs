@@ -1,0 +1,91 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<main id="main" class="project-page">
+  <section class="page-hero project-hero" style="--p-accent: <%= project.accent %>; --p-accent-b: <%= project.accentB %>;">
+    <div class="wrap">
+      <a class="back-link" href="/#work"><span aria-hidden="true">←</span> All work</a>
+      <p class="eyebrow" data-reveal><%= project.categories.join(' · ') %></p>
+      <h1 class="display-lg" data-split><%= project.title %></h1>
+      <p class="project-subtitle" data-reveal><%= project.subtitle %></p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div data-reveal><%- include('partials/cover', { project: project }) %></div>
+
+    <dl class="meta-bar" data-stagger>
+      <div><dt>Role</dt><dd><%= project.role %></dd></div>
+      <div><dt>Company</dt><dd><%= project.company %></dd></div>
+      <div><dt>Timeline</dt><dd><%= project.year %></dd></div>
+      <div><dt>Platform</dt><dd><%= project.platform %></dd></div>
+    </dl>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="project-summary" data-split><%= project.summary %></p>
+
+      <div class="split project-split">
+        <div><h2 class="h-side" data-reveal>Context</h2></div>
+        <div class="split-body" data-reveal><p><%= project.context %></p></div>
+      </div>
+
+      <div class="split project-split">
+        <div><h2 class="h-side" data-reveal>The challenge</h2></div>
+        <div class="split-body" data-reveal><p class="lead-text"><%= project.challenge %></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2 class="display-md accent" data-split>Approach</h2></div>
+      <ol class="approach" data-stagger>
+        <% project.approach.forEach(function (step, i) { %>
+          <li class="approach-step">
+            <span class="approach-num"><%= String(i + 1).padStart(2, '0') %></span>
+            <div>
+              <h3><%= step.title %></h3>
+              <p><%= step.body %></p>
+            </div>
+          </li>
+        <% }); %>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-2 outcome-grid" data-stagger>
+        <div class="panel">
+          <h2 class="h-panel">What came out of it</h2>
+          <ul class="ticks">
+            <% project.outcomes.forEach(function (o) { %><li><%= o %></li><% }); %>
+          </ul>
+        </div>
+        <div class="panel panel-quiet">
+          <h2 class="h-panel">My contribution</h2>
+          <ul class="ticks">
+            <% project.contributions.forEach(function (c) { %><li><%= c %></li><% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Next project</p>
+      <a class="next-project" data-reveal href="/work/<%= next.slug %>">
+        <span class="next-title"><%= next.title %></span>
+        <span class="next-sub"><%= next.subtitle %></span>
+        <span class="next-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <%- include('partials/cta') %>
+</main>
+
+<%- include('partials/footer') %>

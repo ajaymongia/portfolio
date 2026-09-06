@@ -1,0 +1,23 @@
+<div class="carousel visual-carousel" data-carousel data-autoscroll="16">
+  <div class="carousel-viewport" tabindex="0" role="group" aria-label="Visual design gallery, scrollable">
+    <ul class="carousel-track">
+      <% visuals.forEach(function (v, i) { %>
+        <li class="carousel-item visual-slide">
+          <figure class="visual">
+            <div class="visual-frame">
+              <img src="<%= v.src %>" alt="<%= v.title %> — <%= v.caption %>"
+                   width="1536" height="1024"
+                   loading="<%= i < 2 ? 'eager' : 'lazy' %>" decoding="async">
+            </div>
+            <figcaption>
+              <p class="visual-tag"><%= v.tag %></p>
+              <h3 class="visual-title"><%= v.title %></h3>
+              <p class="visual-caption"><%= v.caption %></p>
+            </figcaption>
+          </figure>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <%- include('carousel-controls') %>
+</div>

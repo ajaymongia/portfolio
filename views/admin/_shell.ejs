@@ -1,0 +1,35 @@
+<%- include('_head') %>
+<div class="admin">
+  <aside class="side">
+    <a class="brand" href="/admin"><span class="brand-mark">AM</span> Admin</a>
+
+    <nav>
+      <p class="side-label">Content</p>
+      <a href="/admin/site"            class="<%= path.startsWith('/admin/site') ? 'on' : '' %>">Your details</a>
+      <a href="/admin/navigation"      class="<%= path.startsWith('/admin/navigation') ? 'on' : '' %>">Navigation</a>
+      <a href="/admin/sections"        class="<%= path.startsWith('/admin/sections') ? 'on' : '' %>">Sections</a>
+
+      <p class="side-label">Work</p>
+      <a href="/admin/projects"        class="<%= path.startsWith('/admin/projects') ? 'on' : '' %>">Projects <span class="pill"><%= counts.projects %></span></a>
+      <a href="/admin/visuals"         class="<%= path.startsWith('/admin/visuals') ? 'on' : '' %>">Visual designs <span class="pill"><%= counts.visuals %></span></a>
+      <a href="/admin/services"        class="<%= path.startsWith('/admin/services') ? 'on' : '' %>">Services <span class="pill"><%= counts.services %></span></a>
+      <a href="/admin/clients"         class="<%= path.startsWith('/admin/clients') ? 'on' : '' %>">Clients <span class="pill"><%= counts.clients %></span></a>
+      <a href="/admin/tools"           class="<%= path.startsWith('/admin/tools') ? 'on' : '' %>">Tools <span class="pill"><%= counts.tools %></span></a>
+
+      <p class="side-label">About</p>
+      <a href="/admin/experience"      class="<%= path.startsWith('/admin/experience') ? 'on' : '' %>">Experience <span class="pill"><%= counts.roles %></span></a>
+      <a href="/admin/scrapbook"       class="<%= path.startsWith('/admin/scrapbook') ? 'on' : '' %>">About collage</a>
+      <a href="/admin/recommendations" class="<%= path.startsWith('/admin/recommendations') ? 'on' : '' %>">Recommendations <span class="pill"><%= counts.recommendations %></span></a>
+
+      <p class="side-label">Layout</p>
+      <a href="/admin/footer"          class="<%= path.startsWith('/admin/footer') ? 'on' : '' %>">Footer</a>
+    </nav>
+
+    <div class="side-foot">
+      <a class="view-site" href="/" target="_blank" rel="noopener">View site ↗</a>
+      <form method="post" action="/admin/logout"><button type="submit">Sign out</button></form>
+    </div>
+  </aside>
+
+  <main class="main">
+    <% if (flash) { %><p class="flash" role="status"><%= flash %></p><% } %>

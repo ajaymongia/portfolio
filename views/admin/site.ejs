@@ -1,0 +1,104 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Your details</h1><p>Name, contact details, the hero, and the lists that feed the stats, brand strip and tools.</p></div>
+</div>
+
+<form method="post" action="/admin/site" enctype="multipart/form-data">
+  <div class="card">
+    <h2>Identity</h2>
+    <div class="row">
+      <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" value="<%= site.name %>"></div>
+      <div class="field"><label for="shortName">Short name</label><input id="shortName" name="shortName" type="text" value="<%= site.shortName %>"></div>
+    </div>
+    <div class="field"><label for="role">Role</label><input id="role" name="role" type="text" value="<%= site.role %>"></div>
+    <div class="field">
+      <label for="tagline">Tagline</label>
+      <textarea id="tagline" name="tagline" class="short"><%= site.tagline %></textarea>
+      <span class="hint">Used as the page description for search engines and link previews.</span>
+    </div>
+    <div class="row">
+      <div class="field"><label for="location">Location</label><input id="location" name="location" type="text" value="<%= site.location %>"></div>
+      <div class="field"><label for="yearsExperience">Years of experience</label><input id="yearsExperience" name="yearsExperience" type="text" value="<%= site.yearsExperience %>"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <div class="row">
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" value="<%= site.email %>"></div>
+      <div class="field"><label for="phone">Phone (shown)</label><input id="phone" name="phone" type="text" value="<%= site.phone %>"></div>
+      <div class="field">
+        <label for="phoneHref">Phone (dial)</label>
+        <input id="phoneHref" name="phoneHref" type="text" value="<%= site.phoneHref %>">
+        <span class="hint">No spaces, e.g. <code>+918447414616</code>.</span>
+      </div>
+    </div>
+    <div class="field">
+      <label for="socials">Other links</label>
+      <textarea id="socials" name="socials"><%= F.toPairs(site.socials) %></textarea>
+      <span class="hint">One per line: <code>Label | URL</code>.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Hero</h2>
+    <div class="field"><label for="hero_eyebrow">Small line above the headline</label><input id="hero_eyebrow" name="hero_eyebrow" type="text" value="<%= site.hero.eyebrow %>"></div>
+    <div class="row">
+      <div class="field"><label for="hero_lead">Headline — before</label><input id="hero_lead" name="hero_lead" type="text" value="<%= site.hero.lead %>"></div>
+      <div class="field">
+        <label for="hero_highlight">Underlined words</label>
+        <input id="hero_highlight" name="hero_highlight" type="text" value="<%= site.hero.highlight %>">
+        <span class="hint">Keep it short — it must fit on one line.</span>
+      </div>
+      <div class="field"><label for="hero_tail">Headline — after</label><input id="hero_tail" name="hero_tail" type="text" value="<%= site.hero.tail %>"></div>
+    </div>
+    <div class="field"><label for="hero_sub">Paragraph under the headline</label><textarea id="hero_sub" name="hero_sub" class="short"><%= site.hero.sub %></textarea></div>
+  </div>
+
+  <div class="card">
+    <h2>Portrait</h2>
+    <div class="media-row">
+      <img class="media-preview" src="<%= site.portrait || '/img/favicon.svg' %>" alt="">
+      <div style="flex:1;min-width:220px">
+        <div class="field">
+          <label for="portrait">Replace image</label>
+          <input id="portrait" name="portrait" type="file" accept="image/*">
+          <span class="hint">Cut-out PNG with a transparent background works best. Used in the hero and the collage polaroid.</span>
+        </div>
+        <% if (site.portrait) { %>
+          <label class="check"><input type="checkbox" name="remove_portrait" value="1"> Remove the portrait</label>
+        <% } %>
+      </div>
+    </div>
+    <div class="field" style="margin-top:1.1rem">
+      <label for="portraitVideo">Looping clip path</label>
+      <input id="portraitVideo" name="portraitVideo" type="text" value="<%= site.portraitVideo || '' %>">
+      <span class="hint">Optional, e.g. <code>/img/portrait.mp4</code>. Needs a pure-black background. Leave empty to show only the still.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Stats</h2>
+    <div class="field">
+      <label for="stats">The four figures under the hero</label>
+      <textarea id="stats" name="stats"><%= site.stats.map(function (s) { return s.value + ' | ' + s.label; }).join('\n') %></textarea>
+      <span class="hint">One per line: <code>Value | Label</code>. Numbers count up as they scroll into view.</span>
+    </div>
+  </div>
+
+  <div class="actions"><button class="btn btn-primary" type="submit">Save details</button></div>
+</form>
+
+<div class="card" style="margin-top:2rem">
+  <h2>Résumé PDF</h2>
+  <form method="post" action="/admin/resume" enctype="multipart/form-data">
+    <div class="field">
+      <label for="resume">Replace <code>/resume.pdf</code></label>
+      <input id="resume" name="resume" type="file" accept="application/pdf">
+      <span class="hint">This is what the Résumé link in the header and footer downloads.</span>
+    </div>
+    <button class="btn btn-ghost" type="submit">Upload résumé</button>
+    <a class="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener">View current ↗</a>
+  </form>
+</div>
+<%- include('_foot') %>

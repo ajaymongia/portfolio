@@ -1,0 +1,103 @@
+<%
+  /* A reorderable list of name + logo cards. `noteField` adds a second
+     text field (used by tools for their handwritten caption). */
+  var noteField = typeof note !== 'undefined' && note;
+  var fallback = typeof noLogo !== 'undefined' ? noLogo : 'No logo';
+  var projectList = typeof projects !== 'undefined' ? projects : null;
+%>
+<div class="add-panel">
+  <button class="btn btn-ghost add-toggle" type="button" data-add-toggle="add-<%= id %>" aria-expanded="false">+ Add <%= noun %></button>
+  <div class="card" id="add-<%= id %>" hidden>
+    <form method="post" action="<%= mount %>/new" enctype="multipart/form-data">
+      <div class="media-row">
+        <img class="media-preview" src="/img/favicon.svg" alt="">
+        <div class="field" style="flex:1;min-width:220px">
+          <label for="<%= id %>_image">Logo</label>
+          <input id="<%= id %>_image" name="image" type="file" accept="image/*">
+          <span class="hint"><%- typeof logoHint !== 'undefined' ? logoHint : 'Optional. SVG or a transparent PNG works best.' %></span>
+        </div>
+      </div>
+      <div class="row" style="margin-top:1.1rem">
+        <div class="field"><label for="<%= id %>_name">Name</label><input id="<%= id %>_name" name="name" type="text" required></div>
+        <% if (noteField) { %>
+          <div class="field"><label for="<%= id %>_note">Caption</label><input id="<%= id %>_note" name="note" type="text" placeholder="where most ideas become real"></div>
+        <% } %>
+        <% if (projectList) { %>
+          <div class="field">
+            <label for="<%= id %>_project">Case study</label>
+            <select id="<%= id %>_project" name="projectId">
+              <option value="">None — show under “Also delivered for”</option>
+              <% projectList.forEach(function (p) { %><option value="<%= p.id %>"><%= p.title %></option><% }); %>
+            </select>
+          </div>
+        <% } %>
+      </div>
+      <div class="actions"><button class="btn btn-primary" type="submit">Add <%= noun %></button></div>
+    </form>
+  </div>
+</div>
+
+<% if (!items.length) { %>
+  <div class="card"><p style="margin:0;color:var(--muted)">Nothing here yet.</p></div>
+<% } %>
+
+<% items.forEach(function (item, i) { %>
+  <div class="item">
+    <div class="item-head">
+      <% if (item.logo) { %><img src="<%= item.logo %>" alt=""><% } else { %><span class="thumbless"><%= i + 1 %></span><% } %>
+      <div>
+        <div class="item-title"><%= item.name %></div>
+        <div class="item-sub">
+          <% if (projectList) { %>
+            <% if (item.projectTitle) { %>
+              Case study: <%= item.projectTitle %><% if (item.logo) { %> · <span class="warn">logo unused — linked clients are not in the carousel</span><% } %>
+            <% } else { %>
+              Also delivered for · <%= item.logo ? 'logo set' : 'no logo, shows a placeholder tile' %>
+            <% } %>
+          <% } else { %>
+            <%= item.note || (item.logo ? 'Logo set' : fallback) %>
+          <% } %>
+        </div>
+      </div>
+      <div class="item-tools">
+        <form method="post" action="<%= mount %>/<%= item.id %>/move"><input type="hidden" name="dir" value="up"><button class="btn btn-ghost btn-sm" type="submit" <%= i === 0 ? 'disabled' : '' %> aria-label="Move up">↑</button></form>
+        <form method="post" action="<%= mount %>/<%= item.id %>/move"><input type="hidden" name="dir" value="down"><button class="btn btn-ghost btn-sm" type="submit" <%= i === items.length - 1 ? 'disabled' : '' %> aria-label="Move down">↓</button></form>
+        <button class="disclose" type="button" data-disclose aria-expanded="false">Edit</button>
+      </div>
+    </div>
+    <div class="item-body">
+      <form method="post" action="<%= mount %>/<%= item.id %>" enctype="multipart/form-data">
+        <div class="media-row">
+          <img class="media-preview" src="<%= item.logo || '/img/favicon.svg' %>" alt="">
+          <div class="field" style="flex:1;min-width:220px">
+            <label>Replace logo</label>
+            <input name="image" type="file" accept="image/*">
+            <% if (typeof logoHint !== 'undefined') { %><span class="hint"><%- logoHint %></span><% } %>
+            <% if (item.logo) { %><label class="check" style="margin-top:0.5rem"><input type="checkbox" name="remove_image" value="1"> Remove logo</label><% } %>
+          </div>
+        </div>
+        <div class="row" style="margin-top:1.1rem">
+          <div class="field"><label>Name</label><input name="name" type="text" value="<%= item.name %>" required></div>
+          <% if (noteField) { %>
+            <div class="field"><label>Caption</label><input name="note" type="text" value="<%= item.note || '' %>"></div>
+          <% } %>
+          <% if (projectList) { %>
+            <div class="field">
+              <label>Case study</label>
+              <select name="projectId">
+                <option value="">None — show under “Also delivered for”</option>
+                <% projectList.forEach(function (p) { %>
+                  <option value="<%= p.id %>" <%= item.projectId === p.id ? 'selected' : '' %>><%= p.title %></option>
+                <% }); %>
+              </select>
+            </div>
+          <% } %>
+        </div>
+        <div class="actions"><button class="btn btn-primary" type="submit">Save</button><span class="spacer"></span></div>
+      </form>
+      <form method="post" action="<%= mount %>/<%= item.id %>/delete" data-confirm="Delete “<%= item.name %>”?" style="margin-top:0.75rem">
+        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+<% }); %>

@@ -1,0 +1,78 @@
+<%- include('_shell') %>
+<%
+  var withCopy = [
+    ['work', 'Projects'], ['visuals', 'Visual designs'], ['services', 'Services'],
+    ['experience', 'Work history'], ['recognition', 'Recognition & speaking'],
+    ['recommendations', 'Recommendations'], ['contact', 'Contact']
+  ];
+  var plain = [
+    ['stats', 'Stats row', 'The four figures under the hero'],
+    ['brands', 'Brand strip', 'The scrolling row of client names'],
+    ['about', 'About collage', 'The scrapbook panel'],
+    ['alsoFor', '“Also delivered for”', 'The client logo carousel inside the projects section']
+  ];
+  var hidden = Object.keys(sections).filter(function (k) {
+    return sections[k] && sections[k].visible === false;
+  });
+%>
+<div class="page-head">
+  <div>
+    <h1>Sections</h1>
+    <p>Turn any section off to remove it from the live site, and edit the heading and intro line of the ones that have them. Hiding a section also removes any menu or footer link pointing at it, so nothing links to a missing anchor.</p>
+  </div>
+</div>
+
+<% if (hidden.length) { %>
+  <p class="notice">Currently hidden: <strong><%= hidden.join(', ') %></strong>.</p>
+<% } %>
+
+<form method="post" action="/admin/sections">
+  <div class="card">
+    <h2>Blocks without a heading</h2>
+    <% plain.forEach(function (b) { %>
+      <label class="check toggle-row">
+        <input type="checkbox" name="<%= b[0] %>_visible" value="1" <%= sections[b[0]].visible ? 'checked' : '' %>>
+        <span><strong><%= b[1] %></strong><em><%= b[2] %></em></span>
+      </label>
+    <% }); %>
+  </div>
+
+  <% withCopy.forEach(function (b) { var key = b[0]; %>
+    <div class="card">
+      <div class="card-head">
+        <h2><%= b[1] %></h2>
+        <label class="check">
+          <input type="checkbox" name="<%= key %>_visible" value="1" <%= sections[key].visible ? 'checked' : '' %>>
+          <span>Show on the site</span>
+        </label>
+      </div>
+      <div class="field">
+        <label for="<%= key %>_heading">Heading</label>
+        <textarea id="<%= key %>_heading" name="<%= key %>_heading" class="short"><%= sections[key].heading %></textarea>
+        <span class="hint">Line breaks here become line breaks on the page.</span>
+      </div>
+      <div class="field">
+        <label for="<%= key %>_note">Intro line</label>
+        <textarea id="<%= key %>_note" name="<%= key %>_note" class="short"><%= sections[key].note %></textarea>
+        <span class="hint">Leave empty to hide it.</span>
+      </div>
+    </div>
+  <% }); %>
+
+  <div class="card">
+    <h2>Small labels</h2>
+    <div class="row">
+      <div class="field">
+        <label for="marqueeLabel">Above the brand strip</label>
+        <input id="marqueeLabel" name="marqueeLabel" type="text" value="<%= sections.marqueeLabel %>">
+      </div>
+      <div class="field">
+        <label for="alsoForLabel">Above the client logo carousel</label>
+        <input id="alsoForLabel" name="alsoForLabel" type="text" value="<%= sections.alsoForLabel %>">
+      </div>
+    </div>
+  </div>
+
+  <div class="actions"><button class="btn btn-primary" type="submit">Save sections</button></div>
+</form>
+<%- include('_foot') %>

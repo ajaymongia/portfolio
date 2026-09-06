@@ -1,0 +1,30 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Projects</h1><p>Case studies shown in the work grid. Each one can open a built-in page or link out to Figma, Behance, anywhere.</p></div>
+  <a class="btn btn-primary" href="/admin/projects/new">Add project</a>
+</div>
+
+<% if (!projects.length) { %>
+  <div class="card"><p style="margin:0;color:var(--muted)">No projects yet. Add the first one.</p></div>
+<% } %>
+
+<% projects.forEach(function (p, i) { %>
+  <div class="item">
+    <div class="item-head">
+      <% if (p.thumb) { %><img src="<%= p.thumb %>" alt=""><% } else { %><span class="thumbless"><%= p.mark || '—' %></span><% } %>
+      <div>
+        <div class="item-title"><%= p.title %><% if (p.featured) { %> <span class="pill">featured</span><% } %></div>
+        <div class="item-sub"><%= p.subtitle %></div>
+      </div>
+      <div class="item-tools">
+        <form method="post" action="/admin/projects/<%= p.id %>/move"><input type="hidden" name="dir" value="up"><button class="btn btn-ghost btn-sm" type="submit" <%= i === 0 ? 'disabled' : '' %> aria-label="Move up">↑</button></form>
+        <form method="post" action="/admin/projects/<%= p.id %>/move"><input type="hidden" name="dir" value="down"><button class="btn btn-ghost btn-sm" type="submit" <%= i === projects.length - 1 ? 'disabled' : '' %> aria-label="Move down">↓</button></form>
+        <a class="btn btn-ghost btn-sm" href="/admin/projects/<%= p.id %>">Edit</a>
+        <form method="post" action="/admin/projects/<%= p.id %>/delete" data-confirm="Delete “<%= p.title %>”? This cannot be undone.">
+          <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<% }); %>
+<%- include('_foot') %>

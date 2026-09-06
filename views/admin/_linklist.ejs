@@ -1,0 +1,53 @@
+<%
+  /* A reorderable list of label + href cards.
+     mount: route prefix, items: the list, hint: help text under the URL field */
+%>
+<div class="add-panel">
+  <button class="btn btn-ghost add-toggle" type="button" data-add-toggle="add-<%= id %>" aria-expanded="false">+ Add <%= noun %></button>
+  <div class="card" id="add-<%= id %>" hidden>
+    <form method="post" action="<%= mount %>/new">
+      <div class="row">
+        <div class="field"><label for="<%= id %>_label">Text</label><input id="<%= id %>_label" name="label" type="text" placeholder="Work" required></div>
+        <div class="field">
+          <label for="<%= id %>_href">Link</label>
+          <input id="<%= id %>_href" name="href" type="text" placeholder="#work" required>
+          <span class="hint"><%- hint %></span>
+        </div>
+      </div>
+      <div class="actions"><button class="btn btn-primary" type="submit">Add <%= noun %></button></div>
+    </form>
+  </div>
+</div>
+
+<% if (!items.length) { %>
+  <div class="card"><p style="margin:0;color:var(--muted)">Nothing here yet.</p></div>
+<% } %>
+
+<% items.forEach(function (item, i) { %>
+  <div class="item">
+    <div class="item-head">
+      <span class="thumbless"><%= i + 1 %></span>
+      <div>
+        <div class="item-title"><%= item.label %></div>
+        <div class="item-sub"><%= item.href %></div>
+      </div>
+      <div class="item-tools">
+        <form method="post" action="<%= mount %>/<%= item.id %>/move"><input type="hidden" name="dir" value="up"><button class="btn btn-ghost btn-sm" type="submit" <%= i === 0 ? 'disabled' : '' %> aria-label="Move up">↑</button></form>
+        <form method="post" action="<%= mount %>/<%= item.id %>/move"><input type="hidden" name="dir" value="down"><button class="btn btn-ghost btn-sm" type="submit" <%= i === items.length - 1 ? 'disabled' : '' %> aria-label="Move down">↓</button></form>
+        <button class="disclose" type="button" data-disclose aria-expanded="false">Edit</button>
+      </div>
+    </div>
+    <div class="item-body">
+      <form method="post" action="<%= mount %>/<%= item.id %>">
+        <div class="row">
+          <div class="field"><label>Text</label><input name="label" type="text" value="<%= item.label %>" required></div>
+          <div class="field"><label>Link</label><input name="href" type="text" value="<%= item.href %>" required></div>
+        </div>
+        <div class="actions"><button class="btn btn-primary" type="submit">Save</button><span class="spacer"></span></div>
+      </form>
+      <form method="post" action="<%= mount %>/<%= item.id %>/delete" data-confirm="Delete “<%= item.label %>”?" style="margin-top:0.75rem">
+        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+<% }); %>

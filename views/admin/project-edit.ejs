@@ -1,0 +1,101 @@
+<%- include('_shell') %>
+<% var p = project || {}; var isNew = !project; %>
+<div class="page-head">
+  <div>
+    <h1><%= isNew ? 'New project' : p.title %></h1>
+    <p><%= isNew ? 'Everything except the title is optional — you can fill in the case study later.' : 'Editing this project.' %></p>
+  </div>
+  <a class="btn btn-ghost" href="/admin/projects">Back to list</a>
+</div>
+
+<form method="post" action="/admin/projects/<%= isNew ? 'new' : p.id %>" enctype="multipart/form-data">
+  <div class="card">
+    <h2>Basics</h2>
+    <div class="row">
+      <div class="field"><label for="title">Title</label><input id="title" name="title" type="text" value="<%= p.title || '' %>" required></div>
+      <div class="field">
+        <label for="slug">URL slug</label>
+        <input id="slug" name="slug" type="text" value="<%= p.slug || '' %>">
+        <span class="hint">Leave empty to generate from the title.</span>
+      </div>
+    </div>
+    <div class="field"><label for="subtitle">Subtitle</label><textarea id="subtitle" name="subtitle" class="short"><%= p.subtitle || '' %></textarea></div>
+    <div class="field" data-chips data-chip-placeholder="Add a tag, press Enter">
+      <label for="categories">Tags</label>
+      <textarea id="categories" name="categories" class="short"><%= (p.categories || []).join('\n') %></textarea>
+      <span class="hint">Type a tag and press Enter. The first one also appears on the card next to the year.</span>
+    </div>
+    <div class="row">
+      <div class="field"><label for="year">Timeline</label><input id="year" name="year" type="text" value="<%= p.year || '' %>"></div>
+      <div class="field"><label for="role">Your role</label><input id="role" name="role" type="text" value="<%= p.role || '' %>"></div>
+      <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" value="<%= p.company || '' %>"></div>
+      <div class="field"><label for="platform">Platform</label><input id="platform" name="platform" type="text" value="<%= p.platform || '' %>"></div>
+    </div>
+    <label class="check"><input type="checkbox" name="featured" value="1" <%= p.featured ? 'checked' : '' %>> Featured project</label>
+  </div>
+
+  <div class="card">
+    <h2>Card image</h2>
+    <div class="media-row">
+      <img class="media-preview wide" src="<%= p.thumb || '/img/favicon.svg' %>" alt="">
+      <div style="flex:1;min-width:220px">
+        <div class="field">
+          <label for="thumb">Upload a thumbnail</label>
+          <input id="thumb" name="thumb" type="file" accept="image/*">
+          <span class="hint">Around 1600 × 1000. Without one, the card shows generated artwork built from the colours below.</span>
+        </div>
+        <% if (p.thumb) { %><label class="check"><input type="checkbox" name="remove_thumb" value="1"> Remove image</label><% } %>
+      </div>
+    </div>
+    <div class="row" style="margin-top:1.1rem">
+      <div class="field"><label for="mark">Letters on generated art</label><input id="mark" name="mark" type="text" value="<%= p.mark || '' %>" maxlength="5"></div>
+      <div class="field"><label for="accent">Colour one</label><input id="accent" name="accent" type="color" value="<%= p.accent || '#F4224E' %>"></div>
+      <div class="field"><label for="accentB">Colour two</label><input id="accentB" name="accentB" type="color" value="<%= p.accentB || '#FF8A00' %>"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Where the card links</h2>
+    <div class="field">
+      <label for="link">External URL</label>
+      <input id="link" name="link" type="text" value="<%= p.link || '' %>" placeholder="https://figma.com/proto/…">
+      <span class="hint">Leave empty to use the built-in case study page below. Fill it in to send people to Figma, Behance or a PDF instead.</span>
+    </div>
+    <div class="field"><label for="linkLabel">Button text</label><input id="linkLabel" name="linkLabel" type="text" value="<%= p.linkLabel || 'View case study' %>"></div>
+  </div>
+
+  <div class="card">
+    <h2>Case study</h2>
+    <p style="color:var(--muted);font-size:0.85rem;margin:-0.5rem 0 1.1rem">Only used when there is no external URL above.</p>
+    <div class="field"><label for="summary">Summary</label><textarea id="summary" name="summary"><%= p.summary || '' %></textarea></div>
+    <div class="field"><label for="context">Context</label><textarea id="context" name="context"><%= p.context || '' %></textarea></div>
+    <div class="field"><label for="challenge">The challenge</label><textarea id="challenge" name="challenge"><%= p.challenge || '' %></textarea></div>
+    <div class="field">
+      <label for="approach">Approach — the numbered steps</label>
+      <textarea id="approach" name="approach" class="tall"><%= F.toBlocks(p.approach) %></textarea>
+      <span class="hint">One step per block. First line is the step title, the lines under it are the description. Separate steps with a blank line.</span>
+    </div>
+    <div class="field">
+      <label for="outcomes">What came out of it</label>
+      <textarea id="outcomes" name="outcomes"><%= (p.outcomes || []).join('\n') %></textarea>
+      <span class="hint">One per line — these are full sentences, so they stay as a list rather than chips.</span>
+    </div>
+    <div class="field" data-chips data-chip-placeholder="Add a contribution, press Enter">
+      <label for="contributions">Your contribution</label>
+      <textarea id="contributions" name="contributions"><%= (p.contributions || []).join('\n') %></textarea>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" type="submit">Save project</button>
+    <% if (!isNew && !p.link) { %><a class="btn btn-ghost" href="/work/<%= p.slug %>" target="_blank" rel="noopener">View page ↗</a><% } %>
+    <span class="spacer"></span>
+  </div>
+</form>
+
+<% if (!isNew) { %>
+  <form method="post" action="/admin/projects/<%= p.id %>/delete" data-confirm="Delete “<%= p.title %>”? This cannot be undone." style="margin-top:1rem">
+    <button class="btn btn-danger" type="submit">Delete this project</button>
+  </form>
+<% } %>
+<%- include('_foot') %>

@@ -1,0 +1,25 @@
+<%- include('_head') %>
+<div class="login">
+  <form class="login-card" method="post" action="/admin/login">
+    <h1>Admin</h1>
+    <p class="sub">Sign in to edit the site.</p>
+
+    <% if (!configured) { %>
+      <p class="notice" style="margin-bottom:1.25rem">
+        No admin password is set. Add <code>ADMIN_PASSWORD</code> to your <code>.env</code> file and restart.
+      </p>
+    <% } %>
+    <% if (error) { %><p class="notice" style="margin-bottom:1.25rem"><%= error %></p><% } %>
+
+    <div class="field">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+    </div>
+    <button class="btn btn-primary" type="submit" style="width:100%">Sign in</button>
+  </form>
+</div>
+</body></html>

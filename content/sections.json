@@ -1,0 +1,51 @@
+{
+  "stats": {
+    "visible": true
+  },
+  "brands": {
+    "visible": true
+  },
+  "about": {
+    "visible": true
+  },
+  "work": {
+    "visible": true,
+    "heading": "Products & case studies",
+    "note": "Work across food-tech, fintech, QSR, enterprise SaaS and design systems. Nine years, the ones worth explaining."
+  },
+  "alsoFor": {
+    "visible": true
+  },
+  "visuals": {
+    "visible": true,
+    "heading": "Interfaces, up close",
+    "note": "Screens from client work and self-directed concepts — where the systems thinking ends up on glass."
+  },
+  "services": {
+    "visible": true,
+    "heading": "Where I am\r\nmost useful",
+    "note": "Six things I do end to end. Most projects need three or four of them, and I will tell you which."
+  },
+  "experience": {
+    "visible": false,
+    "heading": "Work history",
+    "note": ""
+  },
+  "recognition": {
+    "visible": false,
+    "heading": "Recognition & speaking",
+    "note": ""
+  },
+  "recommendations": {
+    "visible": true,
+    "heading": "What people I have worked with say",
+    "note": ""
+  },
+  "contact": {
+    "visible": true,
+    "heading": "Got a problem\r\nworth designing\r\nproperly?",
+    "note": "I am always interested in products with real complexity, teams that argue about the right things, and problems that do not have an obvious answer. No pitch deck required."
+  },
+  "marqueeLabel": "Brands I have designed for",
+  "alsoForLabel": "Also delivered for"
+}

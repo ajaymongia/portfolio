@@ -1,0 +1,43 @@
+<%
+  /* A real thumbnail when the project has one, otherwise deterministic
+     generated art keyed off the project's accent colours. */
+  var seed = 0;
+  for (var i = 0; i < project.slug.length; i++) seed += project.slug.charCodeAt(i);
+  var rot = (seed % 40) - 20;
+  var uid = 'g-' + project.slug;
+  var words = project.title.replace(/[^A-Za-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
+  var initials = project.mark || (words.length === 1
+    ? words[0].slice(0, 3).toUpperCase()
+    : words.map(function (w) { return w[0]; }).join('').slice(0, 3).toUpperCase());
+  var markSize = initials.length >= 5 ? 92 : initials.length === 4 ? 116 : 150;
+%>
+<div class="cover<%= project.thumb ? ' cover-photo' : '' %>" style="--p-accent: <%= project.accent %>; --p-accent-b: <%= project.accentB %>;">
+  <% if (project.thumb) { %>
+    <img src="<%= project.thumb %>" alt="<%= project.title %> — <%= project.subtitle %>" loading="lazy" decoding="async">
+  <% } else { %>
+    <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="<%= uid %>" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="<%= project.accent %>" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="<%= project.accentB %>" stop-opacity="0.85"/>
+        </linearGradient>
+        <radialGradient id="<%= uid %>-r" cx="50%" cy="50%">
+          <stop offset="0%" stop-color="<%= project.accentB %>" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="<%= project.accentB %>" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="800" height="500" fill="#141318"/>
+      <circle cx="<%= 200 + (seed % 360) %>" cy="<%= 120 + (seed % 200) %>" r="240" fill="url(#<%= uid %>-r)"/>
+      <g transform="rotate(<%= rot %> 400 250)" opacity="0.9">
+        <rect x="<%= 60 + (seed % 90) %>" y="120" width="300" height="300" rx="28" fill="url(#<%= uid %>)" opacity="0.55"/>
+        <rect x="<%= 300 + (seed % 120) %>" y="60" width="220" height="220" rx="110" fill="none" stroke="<%= project.accent %>" stroke-width="2" opacity="0.5"/>
+        <rect x="<%= 380 + (seed % 60) %>" y="230" width="260" height="160" rx="20" fill="none" stroke="<%= project.accentB %>" stroke-width="2" opacity="0.45"/>
+      </g>
+      <g opacity="0.08" fill="none" stroke="#FAFAFA" stroke-width="1">
+        <% for (var l = 1; l < 8; l++) { %><line x1="<%= l * 100 %>" y1="0" x2="<%= l * 100 %>" y2="500"/><% } %>
+        <% for (var m = 1; m < 5; m++) { %><line x1="0" y1="<%= m * 100 %>" x2="800" y2="<%= m * 100 %>"/><% } %>
+      </g>
+      <text x="52" y="420" font-family="Space Grotesk, sans-serif" font-size="<%= markSize %>" font-weight="700" fill="#FAFAFA" opacity="0.14" letter-spacing="-6"><%= initials %></text>
+    </svg>
+  <% } %>
+</div>

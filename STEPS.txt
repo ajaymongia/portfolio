@@ -1,0 +1,47 @@
+UPLOAD TO  github.com/ajaymongia/portfolio
+==========================================
+
+This folder is exactly what the repo should contain. Upload it in 5 goes —
+one folder at a time. Dragging several folders together fails silently,
+which is what went wrong last time.
+
+Each time:  Add file -> Upload files -> drag -> Commit changes
+
+
+  1.  drag   content/          10 files
+  2.  drag   lib/               6 files
+  3.  drag   views/            35 files
+  4.  drag   public/           21 files, 12 MB — slow, wait for it
+  5.  drag   the 6 loose files together:
+             build.js  server.js  package.json  package-lock.json
+             vercel.json  README.md
+             (plus gitignore.txt — see below)
+
+
+TWO SMALL FIXES AFTERWARDS
+--------------------------
+  A. Click  gitignore.txt  -> pencil icon -> change the name at the top
+     to  .gitignore  -> Commit
+
+  B. Delete the stray file named  gitignore  (no dot) left by the last
+     attempt: click it -> "..." -> Delete file -> Commit
+
+
+CHECK IT WORKED
+---------------
+The repo root should show:
+
+     content   lib   public   views
+     build.js  server.js  package.json  vercel.json  ...
+
+If  content  and  lib  are there, the deploy will work.
+
+
+DEPLOY
+------
+Vercel -> Deployments.
+  A new deployment appeared on its own?  Git is connected. Done.
+  Newest one is old?  Settings -> Git -> Connect Git Repository
+                      -> ajaymongia/portfolio
+                      Use your EXISTING project to keep the same address.
+                      Then Deployments -> Redeploy.

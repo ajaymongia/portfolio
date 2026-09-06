@@ -1,0 +1,42 @@
+[
+  {
+    "quote": "Super sincere and diligent, Ajay is all things good you would like in an experience designer.",
+    "name": "Anant Agarwal",
+    "role": "Service Design Consulting @ EPAM · UX, CX & AI",
+    "image": "/uploads/ad-designer-ajay-image-yziqaourxo7nkux4t-mtp16qpg.jpg",
+    "id": "item-6",
+    "featured": true
+  },
+  {
+    "quote": "Ajay is an exceptionally thoughtful UI/UX designer who delivered outstanding work on the Peet’s Coffee app. His attention to detail, user-first mindset, and ability to transform complex user journeys into intuitive, seamless experiences significantly elevated the overall quality of the app. Every screen, transition, and interaction reflects the depth of reasoning behind his design decisions — not just visually, but functionally as well.",
+    "name": "Savia Vaz",
+    "role": "Regional Head of Marketing · Peet's Coffee",
+    "featured": true,
+    "image": "/uploads/ad-designer-ajay-image-vyfurv3bhpru2pn28-mtp16key.png",
+    "id": "item-7"
+  },
+  {
+    "quote": "Ajay’s unique ability to combine creativity and analytical thinking enabled him to conceptualize innovative design solutions while addressing complex user needs. He collaborated effectively with cross-functional teams, seeking input from stakeholders, engineers, and product managers, ensuring all perspectives were considered in the design process.",
+    "name": "Anirban Chatterjee",
+    "role": "Co-Founder and CMO @ Jammbo Kids",
+    "image": "/uploads/ad-designer-ajay-image-zu9l3hx4asnpftywg-mtp16dwm.png",
+    "id": "item-8",
+    "featured": false
+  },
+  {
+    "quote": "Ajay is a highly skilled professional with a strong ability to understand business goals and translate them into effective solutions. Every task assigned to him was delivered with excellence, precision, and clarity. His sharp understanding of requirements and commitment to quality consistently stood out.",
+    "name": "Sourabh Gupta",
+    "role": "Assistant Vice President at SBI Card",
+    "image": "/uploads/ad-designer-ajay-image-ezwmkc09sds4bph0a-mtp167z3.jpg",
+    "id": "item-9",
+    "featured": false
+  },
+  {
+    "quote": "Ajay has excellent understanding of design psychology and human behavior that translates into excellent user experiences in his designs. He is excellent in terms of research for tasks that he undertakes and the depth of his comprehension reflects in every task completed by him.",
+    "name": "Mayank Prakash",
+    "role": "Senior Marketing Manager @ Loyyal",
+    "image": "/uploads/ad-designer-ajay-image-7af7zq4a3q4n7ja5u-mtp1618z.png",
+    "id": "item-10",
+    "featured": false
+  }
+]

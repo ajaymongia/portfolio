@@ -1,0 +1,36 @@
+<section class="hero">
+  <div class="hero-glow" data-parallax="0.22" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+
+    <div class="hero-copy">
+      <p class="hero-eyebrow" data-enter="1"><%= site.hero.eyebrow %></p>
+
+      <h1 class="display-lg hero-title"><%= site.hero.lead %> <span class="hero-highlight"><%= site.hero.highlight %><svg class="underline" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M3 11 C 60 3, 130 3, 190 8 S 260 13, 297 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span> <%= site.hero.tail %></h1>
+
+      <p class="hero-sub" data-enter="3"><%= site.hero.sub %></p>
+
+      <div class="btn-row" data-enter="4">
+        <a class="btn btn-accent btn-lg" href="#work">View my work <span aria-hidden="true">→</span></a>
+        <a class="btn btn-outline btn-lg" href="#about">A little about me</a>
+      </div>
+    </div>
+
+    <div class="hero-figure<%= site.portrait ? ' has-photo' : '' %>" data-enter="2" aria-hidden="true"
+         <% if (site.portrait && site.portraitVideo) { %>data-video-swap data-video-src="<%= site.portraitVideo %>" data-video-class="hero-video portrait-video"<% } %>>
+      <% if (site.portrait) { %>
+        <img class="hero-photo" src="<%= site.portrait %>" alt="" fetchpriority="high" decoding="async">
+      <% } else { %>
+        <div class="hero-orb">
+          <span class="hero-orb-mark">AM</span>
+          <span class="hero-orb-ring"></span>
+          <span class="hero-orb-ring hero-orb-ring-2"></span>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <a class="scroll-hint" href="#stats" data-enter="5" aria-label="Scroll down">
+    <span class="scroll-hint-line" aria-hidden="true"></span>
+    <span>Scroll</span>
+  </a>
+</section>

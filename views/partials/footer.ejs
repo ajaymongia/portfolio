@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-id">
+      <p class="footer-name"><%= site.name %></p>
+      <p class="footer-role"><%= site.role %></p>
+      <% if (footer.hand) { %><p class="hand footer-hand"><%= footer.hand %></p><% } %>
+    </div>
+
+    <div class="footer-end">
+      <ul class="footer-links">
+        <% footer.links.forEach(function (l) { %>
+          <% var href = l.href.startsWith('#') && !onePage ? '/' + l.href : l.href; %>
+          <li><a href="<%= href %>" <%= /^https?:/.test(href) ? 'target="_blank" rel="noopener"' : '' %>><%= l.label %></a></li>
+        <% }); %>
+      </ul>
+      <p class="footer-copy">© <%= year %> <%= site.name %></p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js?v=<%= v %>" defer></script>
+</body>
+</html>

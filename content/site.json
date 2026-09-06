@@ -1,0 +1,172 @@
+{
+  "name": "Ajay Mongia",
+  "shortName": "Ajay M.",
+  "role": "Senior UX/UI Designer · Design Lead",
+  "tagline": "I lead a team of 12 designers and take products from research to shipped interface.",
+  "hero": {
+    "eyebrow": "Senior UX/UI Designer · Design Lead",
+    "lead": "I design complex products that",
+    "highlight": "feel obvious",
+    "tail": "to use.",
+    "sub": "Nine years across food-tech, fintech and enterprise SaaS — leading a team of 12, and handling UX and UI end to end for KFC, Pizza Hut, EMAAR and Hero FinCorp."
+  },
+  "location": "Delhi, India",
+  "email": "ajaymongia.1003@gmail.com",
+  "phone": "+91 8447414616",
+  "phoneHref": "+918447414616",
+  "yearsExperience": "9+",
+  "portrait": "/img/portrait.png",
+  "portraitVideo": "/img/portrait.mp4",
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/imajaymongia"
+    },
+    {
+      "label": "Portfolio",
+      "href": "https://ajaym.framer.ai"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:ajaymongia.1003@gmail.com"
+    }
+  ],
+  "nav": [
+    {
+      "id": "nav-1",
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "id": "nav-2",
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "id": "nav-3",
+      "label": "Contact",
+      "href": "#contact"
+    },
+    {
+      "label": "Resume",
+      "href": "/resume.pdf",
+      "id": "nav-4"
+    }
+  ],
+  "stats": [
+    {
+      "value": "9+",
+      "label": "Years designing"
+    },
+    {
+      "value": "12",
+      "label": "Designers led"
+    },
+    {
+      "value": "50+",
+      "label": "RFP projects shipped"
+    },
+    {
+      "value": "50+",
+      "label": "Usability sessions run"
+    }
+  ],
+  "clients": [
+    {
+      "name": "KFC",
+      "projectId": "kfc-ordering",
+      "id": "client-1",
+      "logo": null
+    },
+    {
+      "name": "Pizza Hut",
+      "projectId": null,
+      "id": "client-2",
+      "logo": null
+    },
+    {
+      "id": "client-3",
+      "name": "EMAAR",
+      "logo": null,
+      "projectId": "emaar"
+    },
+    {
+      "id": "client-4",
+      "name": "Hero FinCorp",
+      "logo": null,
+      "projectId": "hero-fincorp-pfm"
+    },
+    {
+      "name": "Hardee's",
+      "projectId": null,
+      "id": "client-5",
+      "logo": null
+    },
+    {
+      "id": "client-6",
+      "name": "Peet's Coffee",
+      "logo": null,
+      "projectId": "peets-coffee"
+    },
+    {
+      "id": "client-7",
+      "name": "Jimmy John's",
+      "logo": null,
+      "projectId": "jimmy-johns-kiosk"
+    },
+    {
+      "id": "client-8",
+      "name": "Americana Restaurants",
+      "logo": null,
+      "projectId": null
+    },
+    {
+      "id": "client-9",
+      "name": "Atomberg",
+      "logo": null,
+      "projectId": null
+    },
+    {
+      "name": "ECCO",
+      "projectId": null,
+      "id": "client-10",
+      "logo": null
+    },
+    {
+      "id": "client-11",
+      "name": "Flynas",
+      "logo": null,
+      "projectId": null
+    },
+    {
+      "id": "client-12",
+      "name": "LogiNext",
+      "logo": null,
+      "projectId": null
+    },
+    {
+      "id": "client-13",
+      "name": "Oneto11",
+      "logo": null,
+      "projectId": "oneto11"
+    },
+    {
+      "id": "client-14",
+      "name": "Instaeats",
+      "logo": null,
+      "projectId": null
+    },
+    {
+      "id": "client-15",
+      "name": "Nebula",
+      "logo": null,
+      "projectId": null
+    },
+    {
+      "id": "client-16",
+      "name": "Witly",
+      "logo": null,
+      "projectId": null
+    }
+  ]
+}

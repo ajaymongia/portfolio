@@ -1,0 +1,100 @@
+<div class="paper" data-reveal>
+  <span class="paper-grid-doodle" aria-hidden="true">
+    <svg viewBox="0 0 90 90"><g fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="1" y="1" width="88" height="88"/>
+      <line x1="1" y1="30" x2="89" y2="30"/><line x1="1" y1="60" x2="89" y2="60"/>
+      <line x1="30" y1="1" x2="30" y2="89"/><line x1="60" y1="1" x2="60" y2="89"/>
+    </g></svg>
+  </span>
+
+  <div class="paper-head">
+    <h2 class="paper-title"><%= scrapbook.heading %></h2>
+    <p class="paper-sub"><%= scrapbook.sub %> <span class="sparkle" aria-hidden="true">✦</span></p>
+  </div>
+
+  <div class="collage">
+
+    <!-- ---------------------------------------------------- column 1 -->
+    <div class="collage-col">
+      <div class="note note-intro">
+        <svg class="doodle-arrow" viewBox="0 0 120 90" aria-hidden="true">
+          <path d="M4 6 C 30 40, 45 62, 74 74" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M60 72 L 78 78 L 68 62" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="hand hand-lg"><%= scrapbook.intro.greeting %> <em><%= scrapbook.intro.role %></em></p>
+        <p class="hand hand-sm"><%= scrapbook.intro.line %></p>
+      </div>
+
+      <p class="note-aside"><%= scrapbook.notes[1].text %></p>
+
+      <div class="note note-overlap">
+        <p class="hand hand-sm"><%= scrapbook.overlap.caption %></p>
+        <p class="overlap-words">
+          <% scrapbook.overlap.words.forEach(function (w, i) { %><% if (i) { %><span aria-hidden="true">×</span><% } %><strong><%= w %></strong><% }); %>
+        </p>
+      </div>
+
+      <div class="badge-note">
+        <span class="badge-star" aria-hidden="true">★</span>
+        <span>
+          <strong><%= scrapbook.badge.label %></strong>
+          <em><%= scrapbook.badge.org %></em>
+        </span>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------- column 2 -->
+    <div class="collage-col collage-col-mid">
+      <figure class="polaroid">
+        <span class="tape" aria-hidden="true"></span>
+        <div class="polaroid-img"
+             <% if (site.portrait && site.portraitVideo) { %>data-video-swap data-in-view-only data-video-src="<%= site.portraitVideo %>" data-video-class="polaroid-video portrait-video"<% } %>>
+          <% if (site.portrait) { %>
+            <img src="<%= site.portrait %>" alt="<%= site.name %>">
+          <% } else { %>
+            <span class="polaroid-placeholder" aria-hidden="true">AM</span>
+          <% } %>
+        </div>
+        <figcaption class="hand hand-sm"><%= scrapbook.photoCaption %></figcaption>
+      </figure>
+
+      <p class="note-aside"><%= scrapbook.notes[2].text %></p>
+
+      <div class="note note-flow">
+        <p class="hand hand-md"><%= scrapbook.notes[0].text %></p>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------- column 3 -->
+    <div class="collage-col">
+      <div class="note note-located">
+        <p class="hand hand-md"><%= scrapbook.located %></p>
+      </div>
+
+      <div class="sticky">
+        <span class="tape tape-top" aria-hidden="true"></span>
+        <p class="hand hand-lg sticky-title"><%= scrapbook.funFact.title %></p>
+        <ul>
+          <% scrapbook.funFact.items.forEach(function (i) { %><li><%= i %></li><% }); %>
+        </ul>
+        <p class="sticky-kicker"><%= scrapbook.funFact.kicker %></p>
+        <p class="hand hand-sm sticky-flow"><%= scrapbook.funFact.flow %></p>
+      </div>
+
+      <div class="note note-tools">
+        <p class="hand hand-sm tools-intro"><%= scrapbook.tools.intro %></p>
+        <ul class="tool-list">
+          <% tools.forEach(function (t) { %>
+            <li>
+              <span class="tool-name">
+                <% if (t.logo) { %><img class="tool-logo" src="<%= t.logo %>" alt="" loading="lazy" decoding="async"><% } %>
+                <strong><%= t.name %></strong>
+              </span>
+              <% if (t.note) { %><span><%= t.note %></span><% } %>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

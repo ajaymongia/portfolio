@@ -1,0 +1,23 @@
+{
+  "name": "ajay-mongia-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio site for Ajay Mongia \u2014 Senior UX/UI Designer & Design Lead",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "admin": "node --watch server.js",
+    "build": "node build.js",
+    "preview": "npx --yes serve dist -l 4000"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.19.0",
+    "multer": "^2.3.0"
+  }
+}

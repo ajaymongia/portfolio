@@ -1,0 +1,67 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>About collage</h1><p>The scrapbook panel — handwriting, polaroid, sticky note. The photo comes from your portrait under “Your details”.</p></div>
+</div>
+
+<form method="post" action="/admin/scrapbook">
+  <div class="card">
+    <h2>Heading</h2>
+    <div class="field"><label for="heading">Heading</label><input id="heading" name="heading" type="text" value="<%= scrapbook.heading %>"></div>
+    <div class="field"><label for="sub">Line underneath</label><input id="sub" name="sub" type="text" value="<%= scrapbook.sub %>"></div>
+  </div>
+
+  <div class="card">
+    <h2>Greeting</h2>
+    <div class="row">
+      <div class="field"><label for="greeting">First line</label><input id="greeting" name="greeting" type="text" value="<%= scrapbook.intro.greeting %>"></div>
+      <div class="field"><label for="introRole">Highlighted words</label><input id="introRole" name="introRole" type="text" value="<%= scrapbook.intro.role %>"></div>
+    </div>
+    <div class="field"><label for="introLine">Small line under it</label><input id="introLine" name="introLine" type="text" value="<%= scrapbook.intro.line %>"></div>
+    <div class="field"><label for="photoCaption">Polaroid caption</label><input id="photoCaption" name="photoCaption" type="text" value="<%= scrapbook.photoCaption %>"></div>
+  </div>
+
+  <div class="card">
+    <h2>Notes</h2>
+    <div class="field"><label for="located">Location note</label><textarea id="located" name="located" class="short"><%= scrapbook.located %></textarea></div>
+    <div class="field">
+      <label for="notes">Scattered notes</label>
+      <textarea id="notes" name="notes"><%= (scrapbook.notes || []).map(function (n) { return n.text; }).join('\n') %></textarea>
+      <span class="hint">One per line. The first is set in handwriting; the rest are plain text asides.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sticky note</h2>
+    <div class="field"><label for="fun_title">Title</label><input id="fun_title" name="fun_title" type="text" value="<%= scrapbook.funFact.title %>"></div>
+    <div class="field">
+      <label for="fun_items">Bullets</label>
+      <textarea id="fun_items" name="fun_items"><%= (scrapbook.funFact.items || []).join('\n') %></textarea>
+      <span class="hint">One per line — full sentences, so they stay a list.</span>
+    </div>
+    <div class="field"><label for="fun_kicker">Bold line after the bullets</label><input id="fun_kicker" name="fun_kicker" type="text" value="<%= scrapbook.funFact.kicker %>"></div>
+    <div class="field"><label for="fun_flow">Handwritten line at the bottom</label><input id="fun_flow" name="fun_flow" type="text" value="<%= scrapbook.funFact.flow %>"></div>
+  </div>
+
+  <div class="card">
+    <h2>Overlap statement</h2>
+    <div class="field"><label for="overlap_caption">Handwritten caption</label><textarea id="overlap_caption" name="overlap_caption" class="short"><%= scrapbook.overlap.caption %></textarea></div>
+    <div class="field" data-chips data-chip-placeholder="Add a word, press Enter">
+      <label for="overlap_words">The big words</label>
+      <textarea id="overlap_words" name="overlap_words" class="short"><%= (scrapbook.overlap.words || []).join('\n') %></textarea>
+      <span class="hint">Joined with × on the page.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Badge</h2>
+    <p style="color:var(--muted);font-size:0.85rem;margin:-0.5rem 0 1.1rem">The tool list moved to its own page — <a href="/admin/tools" style="color:var(--accent)">edit tools</a>.</p>
+    <input type="hidden" name="tools_intro" value="<%= scrapbook.tools.intro %>">
+    <div class="row">
+      <div class="field"><label for="badge_label">Badge title</label><input id="badge_label" name="badge_label" type="text" value="<%= scrapbook.badge.label %>"></div>
+      <div class="field"><label for="badge_org">Badge organisation</label><input id="badge_org" name="badge_org" type="text" value="<%= scrapbook.badge.org %>"></div>
+    </div>
+  </div>
+
+  <div class="actions"><button class="btn btn-primary" type="submit">Save collage</button></div>
+</form>
+<%- include('_foot') %>

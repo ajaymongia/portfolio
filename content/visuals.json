@@ -1,0 +1,37 @@
+[
+  {
+    "src": "/img/visual/3.png",
+    "title": "Americana s Restaurants",
+    "caption": "Self-service ordering kiosk and menu browsing across the Pizza Hut, KFC and Hardee’s brands.",
+    "tag": "Kiosk UI · Client work",
+    "id": "item-6"
+  },
+  {
+    "src": "/img/visual/4.png",
+    "title": "Peet's Coffee",
+    "caption": "Menu, rewards onboarding and product detail for the ordering app.",
+    "tag": "Mobile UI · Client work",
+    "id": "item-7"
+  },
+  {
+    "src": "/img/visual/5.png",
+    "title": "Hero FinCorp",
+    "caption": "UPI setup, loan products and sign-in for the fintech app.",
+    "tag": "Fintech UI · Client work",
+    "id": "item-8"
+  },
+  {
+    "src": "/img/visual/1.png",
+    "title": "Behtar Broker",
+    "caption": "Property search, quick services and finance tools for a real-estate brokerage app.",
+    "tag": "Mobile UI · Concept",
+    "id": "item-9"
+  },
+  {
+    "src": "/img/visual/2.png",
+    "title": "PowerFit",
+    "caption": "Training dashboard, workout library and session detail for a fitness app.",
+    "tag": "Mobile UI · Concept",
+    "id": "item-10"
+  }
+]

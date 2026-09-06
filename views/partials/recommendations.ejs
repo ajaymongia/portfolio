@@ -1,0 +1,26 @@
+<div class="carousel rec-carousel" data-carousel data-autoscroll="22">
+  <div class="carousel-viewport" tabindex="0" role="group" aria-label="Recommendations, scrollable">
+    <ul class="carousel-track">
+      <% recommendations.forEach(function (r) { %>
+        <li class="carousel-item rec-slide<%= r.featured ? ' rec-slide-featured' : '' %>">
+          <figure class="rec<%= r.featured ? ' rec-featured' : '' %>">
+            <span class="rec-quote-mark" aria-hidden="true">”</span>
+            <blockquote><%= r.quote %></blockquote>
+            <figcaption>
+              <% if (r.image) { %>
+                <img class="rec-avatar rec-avatar-img" src="<%= r.image %>" alt="" loading="lazy" decoding="async">
+              <% } else { %>
+                <span class="rec-avatar" aria-hidden="true"><%= r.name.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2) %></span>
+              <% } %>
+              <span>
+                <span class="rec-name"><%= r.name %></span>
+                <span class="rec-role"><%= r.role %></span>
+              </span>
+            </figcaption>
+          </figure>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <%- include('carousel-controls') %>
+</div>

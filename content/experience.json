@@ -1,0 +1,72 @@
+{
+  "roles": [
+    {
+      "title": "Design Lead (Associate Team Lead)",
+      "company": "Appinventiv",
+      "location": "Noida",
+      "period": "Apr 2024 — Present",
+      "current": true,
+      "points": [
+        "Lead a team of 12 designers, running design reviews and managing delivery across client projects that run at the same time.",
+        "Delivered 50+ end-to-end RFP design projects on schedule, from first pitch through to solutioning.",
+        "Built a three-tier design token system now used across product teams, which cut the back-and-forth between design and development.",
+        "Work with PMs, developers and BAs to settle open questions before handoff, so less comes back for rework afterwards.",
+        "Brought AI tools into the team's daily workflow to speed up production without losing quality."
+      ]
+    },
+    {
+      "title": "Senior UX/UI Designer",
+      "company": "Appinventiv",
+      "location": "Noida",
+      "period": "May 2022 — Mar 2024",
+      "points": [
+        "Redesigned the ordering flows for KFC, Pizza Hut and Hardee's, shortening the path from menu to checkout.",
+        "Ran 50+ usability testing sessions end to end, from recruiting participants through to sharing findings with clients.",
+        "Built a performance dashboard for KFC UAE and interactive PFM prototypes for Hero FinCorp, each on the client's own design system.",
+        "Handled UX and UI from first concept to developer handoff for EMAAR, Peet's Coffee, Americana Restaurants, Atomberg, ECCO, Flynas and LogiNext."
+      ]
+    },
+    {
+      "title": "Senior UI Designer",
+      "company": "Intigate Technology",
+      "location": "Noida",
+      "period": "Sep 2019 — May 2022",
+      "points": [
+        "Designed the UI for Oneto11, a fantasy sports platform.",
+        "Built a library of 50+ reusable components used across teams.",
+        "Delivered UI for Instaeats, Nebula and Witly."
+      ]
+    },
+    {
+      "title": "Senior UI Designer",
+      "company": "Sixwebsoft Technology",
+      "location": "Noida",
+      "period": "Dec 2017 — Sep 2019",
+      "points": []
+    },
+    {
+      "title": "UI Designer",
+      "company": "Kanak Drishti Infotech",
+      "location": "Noida",
+      "period": "Jul 2017 — Dec 2017",
+      "points": []
+    }
+  ],
+  "recognition": [
+    {
+      "title": "Star Performer of the Year",
+      "org": "Appinventiv",
+      "detail": "For RFP website design that exceeded client expectations."
+    },
+    {
+      "title": "Design Thinking Workshop — Facilitator",
+      "org": "CEED",
+      "detail": "Facilitated a design thinking workshop for 100 attendees."
+    },
+    {
+      "title": "Fintech UX Workshop — Co-lead",
+      "org": "50 attendees",
+      "detail": "Co-led a fintech UX workshop, mapping stakeholders and current-state UX."
+    }
+  ]
+}

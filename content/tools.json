@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Figma",
+    "note": "where most ideas become real",
+    "id": "tool-1",
+    "logo": null
+  },
+  {
+    "id": "tool-2",
+    "name": "FigJam",
+    "note": "where the arguing happens first",
+    "logo": null
+  },
+  {
+    "id": "tool-3",
+    "name": "Claude",
+    "note": "my second brain lately",
+    "logo": null
+  }
+]

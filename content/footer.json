@@ -1,0 +1,30 @@
+{
+  "hand": "Designed and built with too much attention to spacing.",
+  "links": [
+    {
+      "id": "link-1",
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "id": "link-2",
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Resume",
+      "href": "/resume.pdf",
+      "id": "link-3"
+    },
+    {
+      "id": "link-4",
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/imajaymongia"
+    },
+    {
+      "id": "link-5",
+      "label": "Email",
+      "href": "mailto:ajaymongia.1003@gmail.com"
+    }
+  ]
+}

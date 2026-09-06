@@ -1,0 +1,48 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Experience</h1><p>Your work history and the recognition list. Leave a role’s title empty to delete it when you save.</p></div>
+</div>
+
+<form method="post" action="/admin/experience">
+  <% experience.roles.forEach(function (r, i) { %>
+    <div class="card">
+      <h2>Role <%= i + 1 %></h2>
+      <div class="row">
+        <div class="field"><label>Job title</label><input name="role_title" type="text" value="<%= r.title %>"></div>
+        <div class="field"><label>Company</label><input name="role_company" type="text" value="<%= r.company %>"></div>
+        <div class="field"><label>Location</label><input name="role_location" type="text" value="<%= r.location %>"></div>
+        <div class="field"><label>Period</label><input name="role_period" type="text" value="<%= r.period %>"></div>
+      </div>
+      <div class="field">
+        <label>What you did there</label>
+        <textarea name="role_points"><%= (r.points || []).join('\n') %></textarea>
+        <span class="hint">One bullet per line. Leave empty for older roles you only want listed.</span>
+      </div>
+      <label class="check"><input type="checkbox" name="role_current" value="1" <%= r.current ? 'checked' : '' %>> Current role (adds the pulsing dot)</label>
+    </div>
+  <% }); %>
+
+  <div class="card" style="border-style:dashed">
+    <h2>Add a role</h2>
+    <div class="row">
+      <div class="field"><label>Job title</label><input name="role_title" type="text" placeholder="Leave empty to skip"></div>
+      <div class="field"><label>Company</label><input name="role_company" type="text"></div>
+      <div class="field"><label>Location</label><input name="role_location" type="text"></div>
+      <div class="field"><label>Period</label><input name="role_period" type="text"></div>
+    </div>
+    <div class="field"><label>What you did there</label><textarea name="role_points"></textarea></div>
+    <label class="check"><input type="checkbox" name="role_current" value="1"> Current role</label>
+  </div>
+
+  <div class="card">
+    <h2>Recognition &amp; speaking</h2>
+    <div class="field">
+      <label for="recognition">Entries</label>
+      <textarea id="recognition" name="recognition" class="tall"><%= (experience.recognition || []).map(function (r) { return r.title + ' | ' + r.org + '\n' + r.detail; }).join('\n\n') %></textarea>
+      <span class="hint">One entry per block. First line is <code>Title | Organisation</code>, the line under it is the detail. Separate entries with a blank line.</span>
+    </div>
+  </div>
+
+  <div class="actions"><button class="btn btn-primary" type="submit">Save experience</button></div>
+</form>
+<%- include('_foot') %>

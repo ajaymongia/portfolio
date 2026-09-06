@@ -1,0 +1,25 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Navigation</h1><p>The links in the header bar. Drag order with the arrows — they appear left to right.</p></div>
+</div>
+
+<form method="post" action="/admin/navigation/brand">
+  <div class="card">
+    <div class="field">
+      <label for="shortName">Brand name</label>
+      <input id="shortName" name="shortName" type="text" value="<%= site.shortName || '' %>">
+      <span class="hint">Shown next to the AM badge in the header.</span>
+    </div>
+    <div class="actions" style="margin-top:1rem;padding-top:1rem"><button class="btn btn-primary" type="submit">Save brand name</button></div>
+  </div>
+</form>
+
+<h2 style="font-size:1.05rem;margin:2rem 0 0.85rem">Menu links</h2>
+<%- include('_linklist', {
+  mount: '/admin/navigation/links',
+  items: site.nav,
+  id: 'nav',
+  noun: 'menu link',
+  hint: 'Use <code>#work</code>, <code>#about</code>, <code>#visuals</code>, <code>#services</code>, <code>#recommendations</code> or <code>#contact</code> to scroll to a section. Anything else is a normal link, e.g. <code>/resume.pdf</code>.'
+}) %>
+<%- include('_foot') %>

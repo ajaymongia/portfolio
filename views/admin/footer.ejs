@@ -1,0 +1,25 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Footer</h1><p>The sign-off line and the link list at the bottom of every page.</p></div>
+</div>
+
+<form method="post" action="/admin/footer">
+  <div class="card">
+    <div class="field">
+      <label for="hand">Handwritten sign-off</label>
+      <textarea id="hand" name="hand" class="short"><%= footer.hand %></textarea>
+      <span class="hint">Set in the handwriting face under your name. Leave empty to hide it.</span>
+    </div>
+    <div class="actions" style="margin-top:1rem;padding-top:1rem"><button class="btn btn-primary" type="submit">Save sign-off</button></div>
+  </div>
+</form>
+
+<h2 style="font-size:1.05rem;margin:2rem 0 0.85rem">Footer links</h2>
+<%- include('_linklist', {
+  mount: '/admin/footer/links',
+  items: footer.links,
+  id: 'footer',
+  noun: 'footer link',
+  hint: 'Use <code>#work</code> for a section, <code>/resume.pdf</code> for a file, or a full URL like <code>https://linkedin.com/in/…</code>.'
+}) %>
+<%- include('_foot') %>

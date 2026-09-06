@@ -1,0 +1,32 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div>
+    <h1>Welcome back</h1>
+    <p>Everything on the site is editable here. Changes save to <code>content/*.json</code> and show up on the site immediately.</p>
+  </div>
+</div>
+
+<div class="tiles">
+  <a class="tile" href="/admin/site"><strong>Your details</strong><span>Name, contact, hero copy, stats, clients</span></a>
+  <a class="tile" href="/admin/projects"><strong>Projects</strong><span><%= counts.projects %> case studies</span></a>
+  <a class="tile" href="/admin/visuals"><strong>Visual designs</strong><span><%= counts.visuals %> images</span></a>
+  <a class="tile" href="/admin/recommendations"><strong>Recommendations</strong><span><%= counts.recommendations %> quotes</span></a>
+  <a class="tile" href="/admin/services"><strong>Services</strong><span><%= counts.services %> blocks</span></a>
+  <a class="tile" href="/admin/clients"><strong>Clients</strong><span>Brand strip and logo carousel</span></a>
+  <a class="tile" href="/admin/tools"><strong>Tools</strong><span>The list in the collage</span></a>
+  <a class="tile" href="/admin/experience"><strong>Experience</strong><span><%= counts.roles %> roles + recognition</span></a>
+  <a class="tile" href="/admin/scrapbook"><strong>About collage</strong><span>The scrapbook section</span></a>
+  <a class="tile" href="/admin/navigation"><strong>Navigation</strong><span>Header menu</span></a>
+  <a class="tile" href="/admin/sections"><strong>Sections</strong><span>Show/hide, titles and intro lines</span></a>
+  <a class="tile" href="/admin/footer"><strong>Footer</strong><span>Links and sign-off</span></a>
+</div>
+
+<div class="card" style="margin-top:1.5rem">
+  <h2>Publishing</h2>
+  <p style="color:var(--muted);font-size:0.9rem;margin:0 0 0.75rem">
+    Edits are live on this local server straight away. To push them to the deployed site, rebuild and redeploy:
+  </p>
+  <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:0.85rem;overflow:auto;font-size:0.85rem;color:var(--ink-2);margin:0"><code>npm run build
+git add -A &amp;&amp; git commit -m "Update content" &amp;&amp; git push</code></pre>
+</div>
+<%- include('_foot') %>

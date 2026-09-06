@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+.vercel
+
+# Secrets and local state — never committed.
+.env
+.sessions.json
+
+# public/uploads/ IS committed: anything added through the admin is site
+# content, and the deployed site serves it from the repo.

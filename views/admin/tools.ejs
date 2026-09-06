@@ -1,0 +1,19 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Tools</h1><p>The tool list in the about collage. Add a logo and it appears next to the name.</p></div>
+</div>
+
+<form method="post" action="/admin/tools/intro">
+  <div class="card">
+    <div class="field">
+      <label for="intro">Handwritten intro</label>
+      <textarea id="intro" name="intro" class="short"><%= intro %></textarea>
+      <span class="hint">Sits above the list. Line breaks are kept.</span>
+    </div>
+    <div class="actions" style="margin-top:1rem;padding-top:1rem"><button class="btn btn-primary" type="submit">Save intro</button></div>
+  </div>
+</form>
+
+<h2 style="font-size:1.05rem;margin:2rem 0 0.85rem">Tools</h2>
+<%- include('_logolist', { mount: '/admin/tools/items', items: tools, id: 'tool', noun: 'tool', note: true, noLogo: 'No logo' }) %>
+<%- include('_foot') %>

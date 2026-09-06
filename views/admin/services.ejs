@@ -1,0 +1,49 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Services</h1><p>The numbered “where I am most useful” list.</p></div>
+</div>
+
+<div class="add-panel">
+  <button class="btn btn-ghost add-toggle" type="button" data-add-toggle="add-service" aria-expanded="false">+ Add service</button>
+  <div class="card" id="add-service" hidden>
+    <form method="post" action="/admin/services/new">
+      <div class="field"><label for="s_title">Title</label><input id="s_title" name="title" type="text" required></div>
+      <div class="field"><label for="s_blurb">Description</label><textarea id="s_blurb" name="blurb" class="short"></textarea></div>
+      <div class="field" data-chips data-chip-placeholder="Add a tag, press Enter">
+        <label for="s_items">Tags</label>
+        <textarea id="s_items" name="items"></textarea>
+        <span class="hint">Type a tag and press Enter. Paste a comma-separated list to add several at once.</span>
+      </div>
+      <div class="actions"><button class="btn btn-primary" type="submit">Add service</button></div>
+    </form>
+  </div>
+</div>
+
+<% services.forEach(function (s, i) { %>
+  <div class="item">
+    <div class="item-head">
+      <span class="thumbless"><%= String(i + 1).padStart(2, '0') %></span>
+      <div><div class="item-title"><%= s.title %></div><div class="item-sub"><%= (s.items || []).length %> tags</div></div>
+      <div class="item-tools">
+        <form method="post" action="/admin/services/<%= s.id %>/move"><input type="hidden" name="dir" value="up"><button class="btn btn-ghost btn-sm" type="submit" <%= i === 0 ? 'disabled' : '' %>>↑</button></form>
+        <form method="post" action="/admin/services/<%= s.id %>/move"><input type="hidden" name="dir" value="down"><button class="btn btn-ghost btn-sm" type="submit" <%= i === services.length - 1 ? 'disabled' : '' %>>↓</button></form>
+        <button class="disclose" type="button" data-disclose aria-expanded="false">Edit</button>
+      </div>
+    </div>
+    <div class="item-body">
+      <form method="post" action="/admin/services/<%= s.id %>">
+        <div class="field"><label>Title</label><input name="title" type="text" value="<%= s.title %>"></div>
+        <div class="field"><label>Description</label><textarea name="blurb" class="short"><%= s.blurb %></textarea></div>
+        <div class="field" data-chips data-chip-placeholder="Add a tag, press Enter">
+          <label>Tags</label>
+          <textarea name="items"><%= (s.items || []).join('\n') %></textarea>
+        </div>
+        <div class="actions"><button class="btn btn-primary" type="submit">Save</button><span class="spacer"></span></div>
+      </form>
+      <form method="post" action="/admin/services/<%= s.id %>/delete" data-confirm="Delete “<%= s.title %>”?" style="margin-top:0.75rem">
+        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+<% }); %>
+<%- include('_foot') %>

@@ -1,0 +1,34 @@
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-brand" href="<%= onePage ? '#top' : '/' %>">
+      <span class="nav-mark" aria-hidden="true">AM</span>
+      <span class="nav-name"><%= site.name %></span>
+    </a>
+
+    <ul class="nav-links">
+      <% site.nav.forEach(function (item) { %>
+        <li>
+          <% if (item.href) { %>
+            <a href="<%= item.href %>" class="nav-link"><%= item.label %></a>
+          <% } else { %>
+            <a href="<%= onePage ? item.hash : '/' + item.hash %>" class="nav-link" data-spy="<%= item.hash.slice(1) %>"><%= item.label %></a>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul>
+      <% site.nav.forEach(function (item, i) { %>
+        <li style="--i: <%= i %>">
+          <a href="<%= item.href ? item.href : (onePage ? item.hash : '/' + item.hash) %>"><%= item.label %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</header>

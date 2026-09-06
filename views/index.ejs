@@ -1,0 +1,216 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<main id="main">
+
+  <%- include('partials/hero') %>
+
+<% if (sections.stats.visible) { %>
+  <!-- ----------------------------------------------------------- stats -->
+  <section class="section section-tight" id="stats">
+    <div class="wrap">
+      <ul class="stats" data-reveal data-stagger>
+        <% site.stats.forEach(function (s) { %>
+          <li>
+            <span class="stat-value" data-count="<%= s.value %>"><%= s.value %></span>
+            <span class="stat-label"><%= s.label %></span>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.brands.visible) { %>
+  <!-- --------------------------------------------------------- clients -->
+  <section class="marquee-section">
+    <div class="wrap"><% if (sections.marqueeLabel) { %><p class="eyebrow" data-reveal><%= sections.marqueeLabel %></p><% } %></div>
+    <div class="marquee" aria-label="Client list">
+      <div class="marquee-track">
+        <% for (var pass = 0; pass < 2; pass++) { %>
+          <% site.clients.forEach(function (c) { %><span class="marquee-item"><%= c.name %></span><span class="marquee-dot" aria-hidden="true">✳</span><% }); %>
+        <% } %>
+      </div>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.about.visible) { %>
+  <!-- --------------------------------------------------------- about -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <%- include('partials/scrapbook', { scrapbook: scrapbook, tools: tools }) %>
+
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.work.visible) { %>
+  <!-- ------------------------------------------------------- work grid -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display-md accent" data-split><%= sections.work.heading %></h2>
+        <% if (sections.work.note) { %><p class="section-note" data-reveal><%= sections.work.note %></p><% } %>
+      </div>
+
+      <div class="grid-3-up" data-stagger>
+        <% projects.forEach(function (project, index) { %>
+          <%- include('partials/project-card', { project: project, index: index }) %>
+        <% }); %>
+      </div>
+
+      <% if (sections.alsoFor.visible && site.alsoFor.length) { %>
+      <div class="also-for" data-reveal>
+        <% if (sections.alsoForLabel) { %><p class="eyebrow"><%= sections.alsoForLabel %></p><% } %>
+        <%- include('partials/client-carousel', { clients: site.alsoFor }) %>
+      </div>
+      <% } %>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.visuals.visible) { %>
+  <!-- ------------------------------------------------- visual designs -->
+  <section class="section" id="visuals">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display-md accent" data-split><%= sections.visuals.heading %></h2>
+        <% if (sections.visuals.note) { %><p class="section-note" data-reveal><%= sections.visuals.note %></p><% } %>
+      </div>
+      <%- include('partials/visual-carousel', { visuals: visuals }) %>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.services.visible) { %>
+  <!-- ------------------------------------------------------- services -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display-md" data-split><%- sections.services.heading.replace(/\n/g, "<br>") %></h2>
+        <% if (sections.services.note) { %><p class="section-note" data-reveal><%= sections.services.note %></p><% } %>
+      </div>
+
+      <div class="service-list" data-stagger>
+        <% services.forEach(function (s, i) { %>
+          <article class="service-row" id="<%= s.id %>">
+            <span class="service-num"><%= String(i + 1).padStart(2, '0') %></span>
+            <div class="service-main">
+              <h3 class="service-title"><%= s.title %></h3>
+              <p class="service-blurb"><%= s.blurb %></p>
+            </div>
+            <ul class="service-items">
+              <% s.items.forEach(function (it) { %><li><%= it %></li><% }); %>
+            </ul>
+          </article>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.experience.visible) { %>
+  <!-- ---------------------------------------------------- experience -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display-md accent" data-split><%= sections.experience.heading %></h2>
+      </div>
+      <ol class="exp-list" data-stagger>
+        <% experience.roles.forEach(function (r) { %>
+          <li class="exp-item">
+            <div class="exp-head">
+              <div>
+                <h3 class="exp-title"><%= r.title %></h3>
+                <p class="exp-company"><%= r.company %> · <%= r.location %></p>
+              </div>
+              <span class="exp-period"><%= r.period %><% if (r.current) { %> <span class="dot-live" aria-label="Current role"></span><% } %></span>
+            </div>
+            <% if (r.points.length) { %>
+              <ul class="exp-points">
+                <% r.points.forEach(function (p) { %><li><%= p %></li><% }); %>
+              </ul>
+            <% } %>
+          </li>
+        <% }); %>
+      </ol>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.recognition.visible) { %>
+  <!-- ---------------------------------------------------- recognition -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display-md accent" data-split><%= sections.recognition.heading %></h2>
+      </div>
+      <div class="grid-3" data-stagger>
+        <% experience.recognition.forEach(function (r) { %>
+          <div class="panel">
+            <h3 class="h-panel"><%= r.title %></h3>
+            <p class="panel-org"><%= r.org %></p>
+            <p class="panel-detail"><%= r.detail %></p>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.recommendations.visible) { %>
+  <!-- ------------------------------------------------- recommendations -->
+  <section class="section" id="recommendations">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display-md" data-split><%= sections.recommendations.heading %></h2>
+      </div>
+      <%- include('partials/recommendations', { recommendations: recommendations }) %>
+    </div>
+  </section>
+<% } %>
+
+<% if (sections.contact.visible) { %>
+  <!-- ------------------------------------------------------- contact -->
+  <section class="section contact-section" id="contact">
+    <div class="wrap">
+      <h2 class="display-lg contact-head" data-split><%- sections.contact.heading.split("\n").map(function (l, i, a) { return i === a.length - 1 ? '<span class="accent">' + l + '</span>' : l; }).join("<br>") %></h2>
+      <% if (sections.contact.note) { %><p class="page-lead" data-reveal><%= sections.contact.note %></p><% } %>
+
+      <ul class="contact-actions" data-stagger>
+        <li>
+          <a href="mailto:<%= site.email %>">
+            <span class="contact-action-label">Say hello</span>
+            <span class="contact-action-value"><%= site.email %></span>
+            <span class="contact-action-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="tel:<%= site.phoneHref %>">
+            <span class="contact-action-label">Call</span>
+            <span class="contact-action-value"><%= site.phone %></span>
+            <span class="contact-action-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/imajaymongia" target="_blank" rel="noopener">
+            <span class="contact-action-label">LinkedIn</span>
+            <span class="contact-action-value">/in/imajaymongia</span>
+            <span class="contact-action-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="/resume.pdf">
+            <span class="contact-action-label">Résumé</span>
+            <span class="contact-action-value">Download PDF</span>
+            <span class="contact-action-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+<% } %>
+</main>
+
+<%- include('partials/footer') %>

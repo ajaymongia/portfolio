@@ -1,0 +1,78 @@
+[
+  {
+    "id": "ux-research",
+    "title": "UX Research & Strategy",
+    "blurb": "Understanding the problem properly before anyone opens a design file. Every decision traceable back to a reason.",
+    "items": [
+      "User research",
+      "Design thinking",
+      "Information architecture",
+      "User flows",
+      "Card sorting",
+      "Heuristic evaluation"
+    ]
+  },
+  {
+    "id": "product-design",
+    "title": "Product & Interface Design",
+    "blurb": "End-to-end UX and UI — from the first flow diagram to the screens a developer builds from.",
+    "items": [
+      "Wireframing",
+      "Interaction design",
+      "Interface design",
+      "Prototyping",
+      "Journey mapping",
+      "Design QA"
+    ]
+  },
+  {
+    "id": "design-systems",
+    "title": "Design Systems & Tokens",
+    "blurb": "Three-tier token architecture and component libraries that keep a growing team consistent without slowing it down.",
+    "items": [
+      "Design tokens",
+      "Component libraries",
+      "Theming architecture",
+      "System documentation",
+      "Adoption & governance"
+    ]
+  },
+  {
+    "id": "usability",
+    "title": "Usability Testing",
+    "blurb": "Moderated sessions run end to end — recruiting through to findings a client can act on. 50+ sessions and counting.",
+    "items": [
+      "Participant recruiting",
+      "Test script design",
+      "Moderated sessions",
+      "Synthesis & findings",
+      "A/B testing",
+      "WCAG accessibility"
+    ]
+  },
+  {
+    "id": "design-leadership",
+    "title": "Design Leadership",
+    "blurb": "Leading a team of 12: design reviews, delivery across concurrent projects, and the habits that let people ship at pace.",
+    "items": [
+      "Team leadership",
+      "Mentorship",
+      "Design reviews",
+      "Stakeholder management",
+      "Workshop facilitation",
+      "Delivery planning"
+    ]
+  },
+  {
+    "id": "rfp",
+    "title": "RFP & Pitch Design",
+    "blurb": "50+ end-to-end RFP design projects delivered on schedule, from first pitch through to solutioning.",
+    "items": [
+      "Pitch concepts",
+      "Solutioning",
+      "Rapid prototypes",
+      "Presentation design",
+      "Client walkthroughs"
+    ]
+  }
+]

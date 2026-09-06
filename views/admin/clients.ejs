@@ -1,0 +1,28 @@
+<%- include('_shell') %>
+<%
+  var linked = clients.filter(function (c) { return c.projectId; });
+  var unlinked = clients.filter(function (c) { return !c.projectId; });
+%>
+<div class="page-head">
+  <div>
+    <h1>Clients</h1>
+    <p>One list, used in two places. Every client appears by <strong>name</strong> in the scrolling strip near the top of the page — that row is set in large type, so it never uses logos. Clients <em>without</em> a case study also fill the “Also delivered for” carousel under the work grid, and that is the only place a logo appears.</p>
+  </div>
+</div>
+
+<div class="card" style="display:flex;gap:2rem;flex-wrap:wrap">
+  <div><strong style="display:block;font-family:var(--display);color:var(--ink);font-size:1.4rem"><%= clients.length %></strong><span style="color:var(--muted);font-size:0.85rem">in the brand strip (names)</span></div>
+  <div><strong style="display:block;font-family:var(--display);color:var(--ink);font-size:1.4rem"><%= linked.length %></strong><span style="color:var(--muted);font-size:0.85rem">have a case study</span></div>
+  <div><strong style="display:block;font-family:var(--display);color:var(--ink);font-size:1.4rem"><%= unlinked.length %></strong><span style="color:var(--muted);font-size:0.85rem">under “Also delivered for” (logos)</span></div>
+</div>
+
+<%- include('_logolist', {
+  mount: '/admin/clients/brands',
+  items: clients,
+  id: 'brand',
+  noun: 'client',
+  projects: projects,
+  noLogo: 'No logo',
+  logoHint: 'Only used in the “Also delivered for” carousel. The brand strip always shows the name. SVG or a transparent PNG works best.'
+}) %>
+<%- include('_foot') %>

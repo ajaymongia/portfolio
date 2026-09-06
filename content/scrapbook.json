@@ -1,0 +1,50 @@
+{
+  "heading": "A little background about me",
+  "sub": "A few things that make me, me.",
+  "intro": {
+    "greeting": "Hi 👋, I'm AJAY,",
+    "role": "a UX/UI designer",
+    "line": "who leads, mentors, and still designs."
+  },
+  "located": "Currently based in Delhi, India 🇮🇳 — leading a team of 12 at Appinventiv.",
+  "notes": [
+    {
+      "text": "research → flows → tokens → shipped",
+      "tone": "flow"
+    },
+    {
+      "text": "Nine years in. Started in UI, stayed for the problems underneath.",
+      "tone": "plain"
+    },
+    {
+      "text": "Ran 50+ usability sessions. Watching people use a thing beats arguing about it.",
+      "tone": "plain"
+    }
+  ],
+  "funFact": {
+    "title": "Fun Fact",
+    "items": [
+      "Started out making things look right",
+      "Watched 50+ people actually use them",
+      "Learned the interface is rarely the problem"
+    ],
+    "kicker": "Now the work starts earlier and ends later.",
+    "flow": "Research → Flows → Tokens ✦"
+  },
+  "overlap": {
+    "caption": "the overlap is where\nthings get interesting ✦",
+    "words": [
+      "AI",
+      "Systems",
+      "Craft"
+    ]
+  },
+  "photoCaption": "that's me, hi!",
+  "tools": {
+    "intro": "Apart from that, I spend my day\njuggling between these"
+  },
+  "badge": {
+    "label": "Star Performer of the Year",
+    "org": "Appinventiv"
+  }
+}

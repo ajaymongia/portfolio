@@ -1,0 +1,489 @@
+[
+  {
+    "slug": "kfc-ordering",
+    "thumb": null,
+    "link": null,
+    "linkLabel": "View case study",
+    "mark": "KFC",
+    "title": "KFC",
+    "subtitle": "Rebuilding the path from menu to checkout",
+    "categories": [
+      "UX Design",
+      "Ordering Flow",
+      "Food-tech"
+    ],
+    "year": "2022 — 2024",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "iOS · Android · Web",
+    "accent": "#E4002B",
+    "accentB": "#FF8A00",
+    "featured": true,
+    "summary": "Redesigned the ordering flows for one of the largest QSR brands in the region, shortening the distance between a hungry customer and a placed order.",
+    "context": "KFC customers were dropping out between the menu and the payment screen. The flow had grown by accretion — new deal types, new delivery modes and new payment methods had each been bolted onto a structure that was never designed to hold them.",
+    "challenge": "Reduce the number of decisions between opening the app and confirming an order, without removing the deals and customisation that drive basket size.",
+    "approach": [
+      {
+        "title": "Mapped the existing order journey end to end",
+        "body": "Walked the live flow on every platform and mode — delivery, pickup, dine-in — and marked every screen where the customer had to make a decision, wait, or go back."
+      },
+      {
+        "title": "Separated choosing from configuring",
+        "body": "Browsing the menu and configuring an item were competing for the same screen. Splitting them let the menu stay fast to scan while customisation got the room it needed."
+      },
+      {
+        "title": "Moved mode and address selection up front",
+        "body": "Delivery mode, store and address were being confirmed late, which invalidated menu availability. Resolving them first meant the menu a customer saw was the menu they could actually order from."
+      },
+      {
+        "title": "Rebuilt the cart as a review step, not a detour",
+        "body": "Deals, upsells and applied offers were consolidated into one reviewable summary so the final confirmation carried no surprises."
+      },
+      {
+        "title": "Tested and iterated with real users",
+        "body": "Ran moderated usability sessions on the prototype, watched where people hesitated, and reworked the steps that produced the pauses."
+      }
+    ],
+    "outcomes": [
+      "A shorter, more predictable route from menu to checkout",
+      "Customisation and deals preserved rather than stripped out",
+      "Flows documented and handed to development with open questions already settled",
+      "Patterns reused across sibling brands in the same portfolio"
+    ],
+    "contributions": [
+      "End-to-end UX for the ordering journey",
+      "UI design on the client design system",
+      "Moderated usability testing and synthesis",
+      "Developer handoff and design QA"
+    ],
+    "id": "kfc-ordering"
+  },
+  {
+    "slug": "kfc-uae-dashboard",
+    "thumb": null,
+    "link": null,
+    "linkLabel": "View case study",
+    "mark": "UAE",
+    "title": "KFC UAE",
+    "subtitle": "A performance dashboard for the people running the market",
+    "categories": [
+      "Product Design",
+      "Data Visualisation",
+      "Enterprise"
+    ],
+    "year": "2023",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "Web",
+    "accent": "#e4002b",
+    "accentB": "#7b2ff7",
+    "featured": false,
+    "summary": "A performance dashboard built on the client’s own design system, giving the market team one place to read how stores, channels and campaigns were actually doing.",
+    "context": "Performance data lived in several places and each team read it differently. Answering a straightforward question — how did this campaign do in this city — meant assembling it by hand.",
+    "challenge": "Design a dashboard that answers the questions the team asks most, first, and stays legible as the number of tracked metrics grows.",
+    "approach": [
+      {
+        "title": "Started from the questions, not the metrics",
+        "body": "Interviewed the people who would use it daily and wrote down the questions they actually asked. The layout follows that order of enquiry rather than the shape of the database."
+      },
+      {
+        "title": "Set a hierarchy: headline, then breakdown, then detail",
+        "body": "The top of the screen answers \"is anything wrong\". Everything below it exists to answer \"where\" and \"why\", in that order."
+      },
+      {
+        "title": "Worked inside the client design system",
+        "body": "Every component came from the client library. Where a chart pattern did not exist, I proposed it in their token vocabulary so it could be adopted rather than sit as an exception."
+      },
+      {
+        "title": "Designed the empty, loading and partial states",
+        "body": "Dashboards spend real time in states that are not \"all data loaded\". Each one was specified so the build did not have to improvise."
+      }
+    ],
+    "outcomes": [
+      "A single screen the market team could open to answer their standing questions",
+      "Chart and table patterns contributed back to the client design system",
+      "Complete state coverage, so nothing was invented at build time"
+    ],
+    "contributions": [
+      "Stakeholder interviews and requirement framing",
+      "Information architecture and dashboard layout",
+      "Data visualisation patterns within the client system",
+      "Full state specification and handoff"
+    ],
+    "id": "kfc-uae-dashboard"
+  },
+  {
+    "slug": "hero-fincorp-pfm",
+    "thumb": null,
+    "link": null,
+    "linkLabel": "View case study",
+    "mark": "HFC",
+    "title": "Hero FinCorp",
+    "subtitle": "Personal finance management, prototyped end to end",
+    "categories": [
+      "Fintech",
+      "Prototyping",
+      "UX/UI"
+    ],
+    "year": "2023",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "iOS · Android",
+    "accent": "#E4002B",
+    "accentB": "#00C2A8",
+    "featured": true,
+    "summary": "Interactive personal finance management prototypes built on the client’s design system — money in, money out, and the decisions in between made legible.",
+    "context": "Personal finance features tend to be judged on whether someone can look at a screen and immediately understand their own position. Static mockups could not settle that question, so the work was prototyped.",
+    "challenge": "Turn transaction data into something a person can read in a glance and act on — spending, categories, and trends — without the interface reading as a spreadsheet.",
+    "approach": [
+      {
+        "title": "Built a category model people recognise",
+        "body": "Categories only work if they match how someone already thinks about their spending. The taxonomy was drafted, tested against real statements, and cut down until it stopped needing explanation."
+      },
+      {
+        "title": "Designed for the glance and the dig",
+        "body": "A summary anyone can read in two seconds, with progressive detail behind it for the person who wants to know exactly where a number came from."
+      },
+      {
+        "title": "Prototyped the motion, not just the screens",
+        "body": "Interactive prototypes let stakeholders feel the transitions between summary and detail — the part of the experience a flat comp cannot communicate."
+      },
+      {
+        "title": "Stayed inside the client design system",
+        "body": "Everything was assembled from existing components so the prototype doubled as a buildable specification."
+      }
+    ],
+    "outcomes": [
+      "Clickable prototypes used to align stakeholders before build",
+      "A spending taxonomy that held up against real statement data",
+      "Interaction and motion decisions settled ahead of development"
+    ],
+    "contributions": [
+      "UX for the PFM feature set",
+      "Interactive prototype construction",
+      "UI design within the client design system",
+      "Stakeholder walkthroughs"
+    ],
+    "id": "hero-fincorp-pfm"
+  },
+  {
+    "slug": "design-token-system",
+    "thumb": null,
+    "link": null,
+    "linkLabel": "View case study",
+    "mark": "DS",
+    "title": "Three-Tier Token System",
+    "subtitle": "The design system that cut the design–dev back-and-forth",
+    "categories": [
+      "Design Systems",
+      "Tokens",
+      "Team Enablement"
+    ],
+    "year": "2024 — Present",
+    "role": "Design Lead",
+    "company": "Appinventiv",
+    "platform": "Cross-product",
+    "accent": "#6C5CE7",
+    "accentB": "#00D2FF",
+    "featured": true,
+    "summary": "A three-tier token architecture — primitive, semantic, component — now used across product teams, built to end the recurring argument about which grey this grey is.",
+    "context": "Multiple teams, multiple clients, and a steady stream of small disagreements at handoff: which spacing value, which grey, which radius. Each one was cheap on its own and expensive in aggregate.",
+    "challenge": "Give designers and developers a shared vocabulary that survives theming, client brands and new products — without a governance process nobody has time for.",
+    "approach": [
+      {
+        "title": "Primitive tier — the raw values",
+        "body": "The full palette, spacing scale, radii and type ramp, named for what they are, referenced by nothing but the tier above."
+      },
+      {
+        "title": "Semantic tier — the intent",
+        "body": "surface, surface-raised, text-primary, text-muted, border-subtle, accent. Designers work here, which means a rebrand is a remap rather than a redraw."
+      },
+      {
+        "title": "Component tier — the contract",
+        "body": "Per-component tokens that name the part being styled. This is the layer developers consume, so an interface change is a token change rather than a conversation."
+      },
+      {
+        "title": "Rolled it out through the work, not a mandate",
+        "body": "Adopted project by project, with the token names appearing in handoff specs until using them was simply the path of least resistance."
+      }
+    ],
+    "outcomes": [
+      "Adopted across product teams",
+      "Measurably less back-and-forth between design and development",
+      "Theming and client rebrands became a remap, not a redraw",
+      "New designers onboard against a documented vocabulary"
+    ],
+    "contributions": [
+      "Token architecture and naming",
+      "Documentation and adoption strategy",
+      "Rollout across product teams",
+      "Ongoing governance and review"
+    ],
+    "id": "design-token-system"
+  },
+  {
+    "slug": "emaar",
+    "thumb": null,
+    "link": null,
+    "linkLabel": "View case study",
+    "mark": "EMAAR",
+    "title": "EMAAR",
+    "subtitle": "Concept to developer handoff, end to end",
+    "categories": [
+      "UX/UI Design",
+      "Real Estate",
+      "End-to-end"
+    ],
+    "year": "2022 — 2024",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "Web · Mobile",
+    "accent": "#b8860b",
+    "accentB": "#efcf7a",
+    "featured": false,
+    "summary": "Owned UX and UI from first concept through to developer handoff for a property brand where the browsing experience carries the weight of the product.",
+    "context": "Property is a considered purchase researched over weeks. The interface has to hold detail — floor plans, availability, specifications — without turning the browse into work.",
+    "challenge": "Design a browsing and enquiry experience that respects a long decision cycle and still moves people toward contact.",
+    "approach": [
+      {
+        "title": "Structured the catalogue around how people search",
+        "body": "People arrive with a location, a budget or a lifestyle in mind — rarely a project name. The architecture was built around those three entry points."
+      },
+      {
+        "title": "Gave the imagery room to work",
+        "body": "In this category the photography is the product. Layout decisions consistently favoured the image over density."
+      },
+      {
+        "title": "Made enquiry available without being intrusive",
+        "body": "Contact stays reachable at every depth of the journey rather than gating detail behind a form."
+      },
+      {
+        "title": "Handed off with the questions answered",
+        "body": "Specs, states and edge cases resolved with PMs and BAs before development picked it up."
+      }
+    ],
+    "outcomes": [
+      "A complete UX and UI system from concept to handoff",
+      "Browsing structured around real search behaviour",
+      "Fewer items returning for rework after handoff"
+    ],
+    "contributions": [
+      "End-to-end UX",
+      "UI design",
+      "Prototyping",
+      "Developer handoff"
+    ],
+    "id": "emaar"
+  },
+  {
+    "slug": "oneto11",
+    "thumb": null,
+    "mark": "11",
+    "link": null,
+    "linkLabel": "View case study",
+    "title": "Oneto11",
+    "subtitle": "Fantasy sports, designed for the minute before kickoff",
+    "categories": [
+      "UI Design",
+      "Fantasy Sports",
+      "Component Library"
+    ],
+    "year": "2019 — 2022",
+    "role": "Senior UI Designer",
+    "company": "Intigate Technology",
+    "platform": "iOS · Android",
+    "accent": "#00B894",
+    "accentB": "#0984E3",
+    "featured": false,
+    "summary": "UI for a fantasy sports platform, plus a library of 50+ reusable components adopted across teams.",
+    "context": "Fantasy sports traffic arrives in a spike immediately before a match starts. Every interaction in the team-building flow is performed under time pressure.",
+    "challenge": "Design an interface that stays readable and fast when a user is assembling a team with minutes on the clock.",
+    "approach": [
+      {
+        "title": "Optimised the team-building screen for speed",
+        "body": "Selection, credit budget and role constraints all had to be legible at once, without the screen becoming a wall of numbers."
+      },
+      {
+        "title": "Made constraints visible before they are violated",
+        "body": "Budget and role limits show their state continuously, so a user learns the rules by playing rather than by hitting an error."
+      },
+      {
+        "title": "Built a 50+ component library",
+        "body": "Reusable components covering the platform’s recurring patterns, which meant new screens were assembled rather than redrawn."
+      }
+    ],
+    "outcomes": [
+      "A team-building flow that holds up under time pressure",
+      "50+ reusable components used across teams",
+      "Faster, more consistent delivery of new screens"
+    ],
+    "contributions": [
+      "UI design",
+      "Component library",
+      "Design QA"
+    ],
+    "id": "oneto11"
+  },
+  {
+    "slug": "peets-coffee",
+    "thumb": null,
+    "mark": "PC",
+    "link": null,
+    "linkLabel": "View case study",
+    "title": "Peet's Coffee",
+    "subtitle": "A coffee app where every transition earns its place",
+    "categories": [
+      "UX/UI Design",
+      "Mobile App",
+      "Food & Beverage"
+    ],
+    "year": "2023",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "iOS · Android",
+    "accent": "#8B5A2B",
+    "accentB": "#E8B04B",
+    "featured": false,
+    "summary": "End-to-end UX and UI for the Peet’s Coffee app — complex ordering journeys turned into something a half-awake customer can complete without thinking about it.",
+    "context": "Coffee ordering looks simple and is not. Customisation, store selection, rewards, scheduled pickup and payment all compete for the same few screens, and the customer is usually in a hurry.",
+    "challenge": "Design an ordering experience where every screen, transition and interaction has a reason to be there — and none of them slow the customer down.",
+    "approach": [
+      {
+        "title": "Mapped the journey before drawing anything",
+        "body": "Every path through the app — first order, repeat order, rewards redemption, scheduled pickup — written out and compared, so the shared spine could be designed once."
+      },
+      {
+        "title": "Made customisation feel like a choice, not a form",
+        "body": "Drink customisation is where most coffee apps become tedious. Defaults do the work, and the options open up only for the customer who wants them."
+      },
+      {
+        "title": "Designed the transitions, not just the screens",
+        "body": "The movement between summary and detail is part of how the app explains itself. Each transition was specified rather than left to the build."
+      },
+      {
+        "title": "Handed off with the reasoning attached",
+        "body": "Every screen came with the decision behind it, so the intent survived into development instead of being re-litigated."
+      }
+    ],
+    "outcomes": [
+      "A complete ordering experience from first concept to developer handoff",
+      "Customisation that stays out of the way until it is wanted",
+      "Interaction and motion decisions specified rather than improvised"
+    ],
+    "contributions": [
+      "End-to-end UX",
+      "UI design",
+      "Interaction and motion specification",
+      "Developer handoff"
+    ],
+    "id": "peets-coffee"
+  },
+  {
+    "slug": "fintech-super-app",
+    "thumb": null,
+    "mark": "SA",
+    "link": null,
+    "linkLabel": "View case study",
+    "title": "Scalable Super App",
+    "subtitle": "One app, many products, a single navigational spine",
+    "categories": [
+      "Fintech",
+      "Product Design",
+      "Design Systems"
+    ],
+    "year": "2023 — 2024",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "iOS · Android",
+    "accent": "#2D6BFF",
+    "accentB": "#00E0B8",
+    "featured": true,
+    "summary": "Designing a fintech super app: several distinct financial products living in one place without the app collapsing into a menu of menus.",
+    "context": "Super apps fail in a predictable way. Each new product gets added as another tile, the home screen becomes a directory, and the thing that was supposed to simplify a customer’s financial life becomes another place to get lost.",
+    "challenge": "Design a structure that can absorb new financial products over time without a redesign, and without the customer having to relearn where anything is.",
+    "approach": [
+      {
+        "title": "Designed the spine before the products",
+        "body": "One navigational structure that every product plugs into, defined first, so adding a product later is an insertion rather than a renegotiation."
+      },
+      {
+        "title": "Made the home screen answer a question",
+        "body": "Not \"what can this app do\" but \"what is the state of my money right now\". Products surface when they are relevant rather than sitting in a permanent grid."
+      },
+      {
+        "title": "Built the shared component vocabulary",
+        "body": "Balance, transaction, product card, action sheet — defined once, reused everywhere, so a customer moving between products stays on familiar ground."
+      },
+      {
+        "title": "Pressure-tested with products that did not exist yet",
+        "body": "The structure was checked against hypothetical future products, on the assumption that whatever ships first will not be the last thing added."
+      }
+    ],
+    "outcomes": [
+      "A navigational structure that absorbs new products without redesign",
+      "A shared component vocabulary across financial products",
+      "A home screen organised around the customer’s position, not the product catalogue"
+    ],
+    "contributions": [
+      "Information architecture",
+      "Product design",
+      "Component system",
+      "Prototyping"
+    ],
+    "id": "fintech-super-app"
+  },
+  {
+    "slug": "jimmy-johns-kiosk",
+    "thumb": null,
+    "mark": "JJ",
+    "link": null,
+    "linkLabel": "View case study",
+    "title": "Jimmy John's Kiosk",
+    "subtitle": "Ordering at arm’s length, under a queue",
+    "categories": [
+      "QSR",
+      "Kiosk UX",
+      "Interaction Design"
+    ],
+    "year": "2024",
+    "role": "Senior UX/UI Designer",
+    "company": "Appinventiv",
+    "platform": "In-store kiosk",
+    "accent": "#D2232A",
+    "accentB": "#FFC629",
+    "featured": false,
+    "summary": "A self-service ordering kiosk designed for the two constraints a phone never has: you are standing up, and there is a queue behind you.",
+    "context": "Kiosk ordering is not mobile ordering on a bigger screen. The customer is standing, reading from a distance, using a finger on glass they have never touched before, and aware of the people waiting behind them.",
+    "challenge": "Design an ordering flow that a first-time user can complete quickly and confidently, at kiosk distance, without help from staff.",
+    "approach": [
+      {
+        "title": "Sized everything for standing distance",
+        "body": "Type scale, target sizes and contrast set for a screen read at arm’s length rather than held in the hand."
+      },
+      {
+        "title": "Kept the number of decisions visibly finite",
+        "body": "A customer under queue pressure needs to see how much is left. Progress stays visible so the flow never feels open-ended."
+      },
+      {
+        "title": "Made every step reversible",
+        "body": "Undo and back are always available and always in the same place, so a mistake costs a tap rather than a restart."
+      },
+      {
+        "title": "Designed for the idle state too",
+        "body": "The attract screen, the timeout, the reset between customers — the states that decide whether the next person walks up at all."
+      }
+    ],
+    "outcomes": [
+      "A flow a first-time customer can finish without staff help",
+      "Legibility and target sizes tuned for kiosk distance",
+      "Complete state coverage, including attract, timeout and reset"
+    ],
+    "contributions": [
+      "Kiosk UX",
+      "Interaction design",
+      "UI design",
+      "State specification"
+    ],
+    "id": "jimmy-johns-kiosk"
+  }
+]

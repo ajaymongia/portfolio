@@ -1,0 +1,72 @@
+<%- include('_shell') %>
+<div class="page-head">
+  <div><h1>Recommendations</h1><p>Quotes in the auto-scrolling carousel. Add a photo of the person and it replaces their initials.</p></div>
+</div>
+
+<div class="add-panel">
+  <button class="btn btn-ghost add-toggle" type="button" data-add-toggle="add-rec" aria-expanded="false">+ Add recommendation</button>
+  <div class="card" id="add-rec" hidden>
+    <form method="post" action="/admin/recommendations/new" enctype="multipart/form-data">
+      <div class="row">
+        <div class="field"><label for="new_name">Name</label><input id="new_name" name="name" type="text" required></div>
+        <div class="field"><label for="new_role">Their role</label><input id="new_role" name="role" type="text" placeholder="Head of Design @ Company"></div>
+      </div>
+      <div class="field"><label for="new_quote">What they said</label><textarea id="new_quote" name="quote" class="tall" required></textarea></div>
+      <div class="media-row">
+        <img class="media-preview" src="/img/favicon.svg" alt="">
+        <div class="field" style="flex:1;min-width:220px">
+          <label for="new_image">Their photo</label>
+          <input id="new_image" name="image" type="file" accept="image/*">
+          <span class="hint">Square works best. Optional — initials are shown otherwise.</span>
+        </div>
+      </div>
+      <label class="check" style="margin-top:1rem"><input type="checkbox" name="featured" value="1"> Feature this one (wider card, tinted)</label>
+      <div class="actions"><button class="btn btn-primary" type="submit">Add recommendation</button></div>
+    </form>
+  </div>
+</div>
+
+<% recommendations.forEach(function (r, i) { %>
+  <div class="item">
+    <div class="item-head">
+      <% if (r.image) { %><img src="<%= r.image %>" alt=""><% } else { %>
+        <span class="thumbless"><%= r.name.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2) %></span>
+      <% } %>
+      <div>
+        <div class="item-title"><%= r.name %><% if (r.featured) { %> <span class="pill">featured</span><% } %></div>
+        <div class="item-sub"><%= r.role %></div>
+      </div>
+      <div class="item-tools">
+        <form method="post" action="/admin/recommendations/<%= r.id %>/move"><input type="hidden" name="dir" value="up"><button class="btn btn-ghost btn-sm" type="submit" <%= i === 0 ? 'disabled' : '' %>>↑</button></form>
+        <form method="post" action="/admin/recommendations/<%= r.id %>/move"><input type="hidden" name="dir" value="down"><button class="btn btn-ghost btn-sm" type="submit" <%= i === recommendations.length - 1 ? 'disabled' : '' %>>↓</button></form>
+        <button class="disclose" type="button" data-disclose aria-expanded="false">Edit</button>
+      </div>
+    </div>
+    <div class="item-body">
+      <form method="post" action="/admin/recommendations/<%= r.id %>" enctype="multipart/form-data">
+        <div class="row">
+          <div class="field"><label>Name</label><input name="name" type="text" value="<%= r.name %>" required></div>
+          <div class="field"><label>Their role</label><input name="role" type="text" value="<%= r.role %>"></div>
+        </div>
+        <div class="field"><label>What they said</label><textarea name="quote" class="tall"><%= r.quote %></textarea></div>
+        <div class="media-row">
+          <img class="media-preview" src="<%= r.image || '/img/favicon.svg' %>" alt="">
+          <div class="field" style="flex:1;min-width:220px">
+            <label>Replace photo</label>
+            <input name="image" type="file" accept="image/*">
+            <% if (r.image) { %><label class="check" style="margin-top:0.5rem"><input type="checkbox" name="remove_image" value="1"> Remove photo</label><% } %>
+          </div>
+        </div>
+        <label class="check" style="margin-top:1rem"><input type="checkbox" name="featured" value="1" <%= r.featured ? 'checked' : '' %>> Feature this one</label>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Save</button>
+          <span class="spacer"></span>
+        </div>
+      </form>
+      <form method="post" action="/admin/recommendations/<%= r.id %>/delete" data-confirm="Delete the recommendation from <%= r.name %>?" style="margin-top:0.75rem">
+        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+<% }); %>
+<%- include('_foot') %>
